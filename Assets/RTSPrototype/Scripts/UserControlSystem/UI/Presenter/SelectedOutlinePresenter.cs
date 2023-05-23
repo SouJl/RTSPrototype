@@ -7,7 +7,7 @@ namespace RTSPrototype.UIPresenter
     public class SelectedOutlinePresenter :  MonoBehaviour
     {
         [Header("Outline")]
-        [SerializeField] private Outline _outline;
+        [SerializeField] private Outline _outlined;
         [Header("Selected Value")]
         [SerializeField] private SelectedValue _selectedObject;
 
@@ -19,7 +19,7 @@ namespace RTSPrototype.UIPresenter
 
         private void OnSelected(ISelectable selectable)
         {
-            _outline.enabled = selectable != null;
+            _outlined.enabled = selectable != null;
         }
     }
 }
