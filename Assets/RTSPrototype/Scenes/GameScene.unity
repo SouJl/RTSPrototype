@@ -2792,6 +2792,10 @@ PrefabInstance:
       propertyPath: _unitsParent
       value: 
       objectReference: {fileID: 1110754810}
+    - target: {fileID: 7829186494497903737, guid: aea3d24e902892c4daa37071685981c7, type: 3}
+      propertyPath: precomputeOutline
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8066867897219003065, guid: aea3d24e902892c4daa37071685981c7, type: 3}
       propertyPath: m_RootOrder
       value: 0
