@@ -1,8 +1,9 @@
 using System.Linq;
 using UnityEngine;
+using RTSPrototype.UIModel;
 using RTSPrototype.Abstractions;
 
-namespace RTSPrototype.UserControlSystem 
+namespace RTSPrototype.UIPresenter 
 {
     public class MouseInteractionPresenter : MonoBehaviour
     {

@@ -2,7 +2,7 @@
 using UnityEngine;
 using RTSPrototype.Abstractions;
 
-namespace RTSPrototype.UserControlSystem
+namespace RTSPrototype.UIModel
 {
     [CreateAssetMenu(fileName = nameof(SelectedValue),  menuName = "RTSPrototype/" + nameof(SelectedValue))]
     public class SelectedValue : ScriptableObject

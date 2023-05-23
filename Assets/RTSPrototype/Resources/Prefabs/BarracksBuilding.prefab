@@ -337,8 +337,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitPrefab: {fileID: 485640635272551687, guid: f9c08a4bcd1219246936c96b3d52ff08, type: 3}
   _unitsParent: {fileID: 0}
+  _spawnPoint: {fileID: 0}
   _minRange: -10
   _maxRange: 10
+  _maxHealth: 1500
+  _icon: {fileID: 21300000, guid: fc291bb7b76aca04e863031ad1f8c33f, type: 3}
 --- !u!1 &8066867897547615137
 GameObject:
   m_ObjectHideFlags: 0
