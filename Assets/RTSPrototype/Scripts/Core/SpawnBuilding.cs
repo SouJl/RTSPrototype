@@ -1,12 +1,13 @@
 using UnityEngine;
 using RTSPrototype.Abstractions;
+using RTSPrototype.Abstractions.Commands;
+using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 
 namespace RTSPrototype.Core 
 {
-    public class SpawnBuilding : MonoBehaviour, IUnitProducer, ISelectable
+    public class SpawnBuilding : CommandExecutorBase<IProduceUnitCommand>, ISelectable
     {
         [Header("Main Settings")]
-        [SerializeField] private GameObject _unitPrefab;
         [SerializeField] private Transform _unitsParent;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private float _minRange = -10f;
@@ -28,7 +29,12 @@ namespace RTSPrototype.Core
 
         private float _currentHealth = 1200f;
 
-        public void ProduceUnit() 
+
+        public override void ExcecuteSpecifiedCommand(IProduceUnitCommand command) => 
+            ProduceUnit(command);
+
+
+        private void ProduceUnit(IProduceUnitCommand command)
         {
             var spawnPos = new Vector3(
                 _spawnPoint.position.x + Random.Range(_minRange, _maxRange),
@@ -36,12 +42,13 @@ namespace RTSPrototype.Core
                 _spawnPoint.position.z + Random.Range(_minRange, _maxRange));
 
             Instantiate(
-                _unitPrefab,
-                spawnPos, 
+                command.UnitPrefab,
+                spawnPos,
                 Quaternion.identity,
                 _unitsParent);
 
         }
+
 
 #if UNITY_EDITOR
 
@@ -55,7 +62,6 @@ namespace RTSPrototype.Core
                 _spawnPoint.transform.up, 
                 (_maxRange - _minRange) / 2f);
         }
-
 #endif
 
     }
