@@ -54,7 +54,7 @@ namespace RTSPrototype.UIPresenter.CommandsPresenter
             var unitProducer = commandExecutor as CommandExecutorBase<IProduceUnitCommand>;
             if (unitProducer != null)
             {
-                unitProducer.ExecuteCommand(_context.Inject(new ProduceUnitCommand()));
+                unitProducer.ExecuteCommand(_context.Inject(new ProduceUnitCommandHeir()));
                 return;
             }
             var mover = commandExecutor as CommandExecutorBase<IMoveCommand>;
