@@ -1,7 +1,7 @@
 using UnityEngine;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 
-namespace RTSPrototype.UserControlSystem.CommandRealization 
+namespace RTSPrototype.UIModel.CommandRealization 
 {
     public class ProduceUnitCommand : IProduceUnitCommand
     {

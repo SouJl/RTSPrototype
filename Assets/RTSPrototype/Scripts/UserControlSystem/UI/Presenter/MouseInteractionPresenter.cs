@@ -2,6 +2,7 @@ using System.Linq;
 using UnityEngine;
 using RTSPrototype.UIModel;
 using RTSPrototype.Abstractions;
+using UnityEngine.EventSystems;
 
 namespace RTSPrototype.UIPresenter 
 {
@@ -9,9 +10,13 @@ namespace RTSPrototype.UIPresenter
     {
         [SerializeField] private Camera _camera;
         [SerializeField] private SelectedValue _selectedObject;
+        [SerializeField] private EventSystem _eventSystem;
 
         private void Update()
         {
+            if (_eventSystem.IsPointerOverGameObject())
+                return;
+
             if (!Input.GetMouseButtonUp(0)) 
                 return;
 
@@ -26,6 +31,5 @@ namespace RTSPrototype.UIPresenter
                 .FirstOrDefault();
             _selectedObject.SetValue(selected);
         }
-
     }
 }
