@@ -57,6 +57,31 @@ namespace RTSPrototype.UIPresenter.CommandsPresenter
                 unitProducer.ExecuteCommand(_context.Inject(new ProduceUnitCommand()));
                 return;
             }
+            var mover = commandExecutor as CommandExecutorBase<IMoveCommand>;
+            if (mover != null)
+            {
+                mover.ExecuteCommand(_context.Inject(new MoveCommand()));
+                return;
+            }
+            var attacker = commandExecutor as CommandExecutorBase<IAttackCommand>;
+            if (attacker != null)
+            {
+                attacker.ExecuteCommand(_context.Inject(new AttackCommand()));
+                return;
+            }
+            var patroller = commandExecutor as CommandExecutorBase<IPatrolCommand>;
+            if (patroller != null)
+            {
+                patroller.ExecuteCommand(_context.Inject(new PatrolCommand()));
+                return;
+            }
+            var stopper = commandExecutor as CommandExecutorBase<IStopCommand>;
+            if (stopper != null)
+            {
+                stopper.ExecuteCommand(_context.Inject(new StopCommand()));
+                return;
+            }
+
             throw new ApplicationException($"{nameof(CommandButtonsPresenter)}.{nameof(OnButtonClick)}:" +
                 $" Unknown type of commands executor: { commandExecutor.GetType().FullName }!");
         }

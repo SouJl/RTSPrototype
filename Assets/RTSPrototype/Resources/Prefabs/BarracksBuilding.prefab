@@ -112,7 +112,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8066867896195152809}
-  - component: {fileID: 7166407753926131632}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -140,24 +139,6 @@ Transform:
   m_Father: {fileID: 8066867897219003065}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7166407753926131632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8066867896195152814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.8679245, g: 0.7636809, b: 0.08597365, a: 1}
-  outlineWidth: 4
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &8066867896356748075
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +151,7 @@ GameObject:
   - component: {fileID: 6394246719311287915}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Selected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -318,7 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8066867897219003065}
   - component: {fileID: 7287815285509398939}
-  - component: {fileID: 599059541996743098}
+  - component: {fileID: 2768032752605770515}
   m_Layer: 0
   m_Name: BarracksBuilding
   m_TagString: Untagged
@@ -361,20 +342,24 @@ MonoBehaviour:
   _maxRange: 10
   _maxHealth: 1500
   _icon: {fileID: 21300000, guid: fc291bb7b76aca04e863031ad1f8c33f, type: 3}
---- !u!114 &599059541996743098
+--- !u!114 &2768032752605770515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8066867897219003070}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea7622deb65b174998dc1a3267fcd7c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlined: {fileID: 7166407753926131632}
-  _selectedObject: {fileID: 11400000, guid: 2f38e16b3ea2bc04f989d95c09b6e732, type: 2}
+  outlineMode: 0
+  outlineColor: {r: 0.8679245, g: 0.7636809, b: 0.08597365, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8066867897547615137
 GameObject:
   m_ObjectHideFlags: 0
