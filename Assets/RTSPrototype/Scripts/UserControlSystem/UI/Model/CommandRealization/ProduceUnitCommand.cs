@@ -1,11 +1,12 @@
 using UnityEngine;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
+using RTSPrototype.Utils;
 
 namespace RTSPrototype.UIModel.CommandRealization 
 {
     public class ProduceUnitCommand : IProduceUnitCommand
     {
-        [SerializeField] private GameObject _unitPrefab;
+        [InjectAsset("Knight")] private GameObject _unitPrefab;
         public GameObject UnitPrefab => _unitPrefab;
     }
 }

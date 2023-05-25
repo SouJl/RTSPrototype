@@ -7,12 +7,14 @@ using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.Commands;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 using RTSPrototype.UIModel.CommandRealization;
+using RTSPrototype.Utils;
 
 namespace RTSPrototype.UIPresenter.CommandsPresenter
 {
     public class CommandButtonsPresenter : MonoBehaviour
     {
         [SerializeField] private SelectedValue _selectable;
+        [SerializeField] private AssetsContext _context;
         [SerializeField] private CommandButtonsView _view;
 
         private ISelectable _currentSelectable;
@@ -52,7 +54,7 @@ namespace RTSPrototype.UIPresenter.CommandsPresenter
             var unitProducer = commandExecutor as CommandExecutorBase<IProduceUnitCommand>;
             if (unitProducer != null)
             {
-                unitProducer.ExecuteCommand(new ProduceUnitCommand());
+                unitProducer.ExecuteCommand(_context.Inject(new ProduceUnitCommand()));
                 return;
             }
             throw new ApplicationException($"{nameof(CommandButtonsPresenter)}.{nameof(OnButtonClick)}:" +
