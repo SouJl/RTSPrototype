@@ -11,7 +11,7 @@ namespace RTSPrototype.Core.CommandExecutors
 
         private void ExecutePatrol(IPatrolCommand command)
         {
-            Debug.Log($"Execute Patrol by {name}");
+            Debug.Log($"Execute Patrol by {name} from {command.StartPosition} to {command.EndPosition}");
         }
     }
 }

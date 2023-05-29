@@ -25,6 +25,8 @@ namespace RTSPrototype.Core
 
         public Sprite Icon => _icon;
 
+        public Transform PivotPoint => gameObject.transform;
+
         #endregion
 
         private float _currentHealth = 1200f;
