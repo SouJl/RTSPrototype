@@ -21,7 +21,7 @@ namespace RTSPrototype.UIModel.CommandCreators
         }
 
         [Inject]
-        private void Init(RTSValueBase<Vector3> groundClicks)
+        private void Init(IRTSValue<Vector3> groundClicks)
         {
             groundClicks.OnNewValue += OnNewValue;
         }

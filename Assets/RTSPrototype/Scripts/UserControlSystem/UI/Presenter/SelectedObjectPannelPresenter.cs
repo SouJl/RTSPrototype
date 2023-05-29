@@ -23,7 +23,7 @@ namespace RTSPrototype.UIPresenter
         [SerializeField] private Color _maxRangeColor = Color.green;
         [SerializeField] private float _colorSmooth = 0.5f;
 
-        [Inject] private RTSValueBase<ISelectable> _selectedObject;
+        [Inject] private IRTSValue<ISelectable> _selectedObject;
 
         private void Start()
         {

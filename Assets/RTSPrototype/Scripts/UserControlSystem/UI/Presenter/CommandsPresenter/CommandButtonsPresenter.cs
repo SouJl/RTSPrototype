@@ -12,7 +12,7 @@ namespace RTSPrototype.UIPresenter.CommandsPresenter
     {        
         [SerializeField] private CommandButtonsView _view;
 
-        [Inject] private RTSValueBase<ISelectable> _selectable;
+        [Inject] private IRTSValue<ISelectable> _selectable;
         [Inject] private CommandButtonsModel _model;
 
         private ISelectable _currentSelectable;

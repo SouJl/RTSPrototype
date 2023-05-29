@@ -13,8 +13,8 @@ namespace RTSPrototype.UIPresenter
         [Header("Get OnClick Position Settings")]
         [SerializeField] private Transform _groundTransform;
 
-        [Inject] private RTSValueBase<ISelectable> _selectedObject;
-        [Inject] private RTSValueBase<Vector3> _groundClicksRMB;
+        [Inject] private IRTSValue<ISelectable> _selectedObject;
+        [Inject] private IRTSValue<Vector3> _groundClicksRMB;
 
         private Plane _groundPlane;
 

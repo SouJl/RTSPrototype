@@ -7,7 +7,7 @@ namespace RTSPrototype.UIPresenter
 {
     public class SelectionOutlinePresenter : MonoBehaviour
     {
-        [Inject] private RTSValueBase<ISelectable> _selectableValue;
+        [Inject] private IRTSValue<ISelectable> _selectableValue;
 
         private OutlineSelector _selectedOutlineSelector;
         private ISelectable _currentSelected;
