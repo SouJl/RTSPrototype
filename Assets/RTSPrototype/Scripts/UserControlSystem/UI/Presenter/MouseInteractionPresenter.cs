@@ -40,9 +40,13 @@ namespace RTSPrototype.UIPresenter
 
             if (Input.GetMouseButtonUp(0))
             {
-                if (CheckForHit<ISelectable>(hits, out var selectable)) 
+                if (CheckForHit<ISelectable>(hits, out var selectable))
                 {
                     _selectedLMB.SetValue(selectable);
+                }
+                else 
+                {
+                    _selectedLMB.SetValue(null);
                 }
             }            
             else if(Input.GetMouseButton(1))
