@@ -11,7 +11,7 @@ namespace RTSPrototype.Core.CommandExecutors
 
         private void ExceuteMove(IMoveCommand command)
         {
-            Debug.Log($"Execute Move by {name}");  
+            Debug.Log($"Execute Move by {name} to {command.TargetPosition} position");  
         }
     }
 }

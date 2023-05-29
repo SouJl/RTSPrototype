@@ -4323,6 +4323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _legacyContext: {fileID: 11400000, guid: e1fa6edff8c53ad40a32da88a7a716b2, type: 2}
+  _vector3Value: {fileID: 11400000, guid: 99771da9fc0fb834abd93046c40de5e5, type: 2}
 --- !u!1001 &1729169562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5837,7 +5838,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 963194227}
   _selectedObject: {fileID: 11400000, guid: 2f38e16b3ea2bc04f989d95c09b6e732, type: 2}
-  _eventSystem: {fileID: 1540569406}
+  _groundClicksRMB: {fileID: 11400000, guid: 99771da9fc0fb834abd93046c40de5e5, type: 2}
+  _groundTransform: {fileID: 54342611}
 --- !u!4 &2088454241
 Transform:
   m_ObjectHideFlags: 0

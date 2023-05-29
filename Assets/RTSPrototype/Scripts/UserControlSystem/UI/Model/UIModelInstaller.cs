@@ -1,4 +1,5 @@
-﻿using RTSPrototype.Abstractions.Commands.CommandInterfaces;
+﻿using System.ComponentModel;
+using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 using RTSPrototype.UIModel.CommandCreators;
 using RTSPrototype.Utils;
 using UnityEngine;
@@ -9,10 +10,12 @@ namespace RTSPrototype.UIModel
     public class UIModelInstaller : MonoInstaller
     {
         [SerializeField] private AssetsContext _legacyContext;
+        [SerializeField] private Vector3Value _vector3Value;
 
         public override void InstallBindings()
         {
             Container.Bind<AssetsContext>().FromInstance(_legacyContext);
+            Container.Bind<Vector3Value>().FromInstance(_vector3Value);
 
             Container.Bind<CommandCreatorBase<IProduceUnitCommand>>().To<ProduceUnitCommandCommandCreator>().AsSingle();
             
