@@ -26,6 +26,7 @@ namespace RTSPrototype.UIModel
         {
             Container.Bind<IRTSValue<ISelectable>>().To<SelectedValue>().AsSingle().NonLazy();
             Container.Bind<IRTSValue<Vector3>>().To<Vector3Value>().AsSingle().NonLazy();
+            Container.Bind<IRTSValue<IAttackable>>().To<AttackableValue>().AsSingle().NonLazy();
         }
 
         private void BindingCommands()

@@ -5,7 +5,7 @@ using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 
 namespace RTSPrototype.Core 
 {
-    public class SpawnBuilding : CommandExecutorBase<IProduceUnitCommand>, ISelectable
+    public class SpawnBuilding : CommandExecutorBase<IProduceUnitCommand>, ISelectable, IAttackable
     {
         [Header("Main Settings")]
         [SerializeField] private Transform _unitsParent;

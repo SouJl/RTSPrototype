@@ -11,7 +11,8 @@ namespace RTSPrototype.Core.CommandExecutors
 
         private void ExecuteAttack(IAttackCommand command) 
         {
-            Debug.Log($"Execute Attack by {name}");
+            Debug.Log($"Execute Attack by {name} " +
+                $"and hit {command.Target} with {command.Target.CurrentHealth}");
         }
     }
 }

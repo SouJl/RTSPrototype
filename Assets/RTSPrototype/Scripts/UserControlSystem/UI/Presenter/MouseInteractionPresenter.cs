@@ -13,8 +13,10 @@ namespace RTSPrototype.UIPresenter
         [Header("Get OnClick Position Settings")]
         [SerializeField] private Transform _groundTransform;
 
-        [Inject] private IRTSValue<ISelectable> _selectedObject;
+        [Inject] private IRTSValue<ISelectable> _selectedLMB;
         [Inject] private IRTSValue<Vector3> _groundClicksRMB;
+        [Inject] private IRTSValue<IAttackable> _attackablesRMB;
+
 
         private Plane _groundPlane;
 
@@ -34,31 +36,42 @@ namespace RTSPrototype.UIPresenter
                 return;
 
             var ray = _camera.ScreenPointToRay(Input.mousePosition);
-           
+            var hits = Physics.RaycastAll(ray);
+
             if (Input.GetMouseButtonUp(0))
             {
-                var hits = Physics.RaycastAll(ray);
-                
-                if (hits.Length == 0)
+                if (CheckForHit<ISelectable>(hits, out var selectable)) 
                 {
-                    return;
+                    _selectedLMB.SetValue(selectable);
                 }
-                var selectable = hits
-                    .Select(hit =>hit.collider.GetComponentInParent<ISelectable>())
-                    .Where(c => c != null)
-                    .FirstOrDefault();
-
-                _selectedObject.SetValue(selectable);
-            }
-
-            if(Input.GetMouseButton(1))
+            }            
+            else if(Input.GetMouseButton(1))
             {
-                if (_groundPlane.Raycast(ray, out var enter))
+                if (CheckForHit<IAttackable>(hits, out var attackable))
+                {
+                    _attackablesRMB.SetValue(attackable);
+                }
+                else if (_groundPlane.Raycast(ray, out var enter)) 
                 {
                     _groundClicksRMB.SetValue(ray.origin + ray.direction * enter);
                 }
             }
 
+        }
+
+        private bool CheckForHit<THit>(RaycastHit[] hits, out THit result) where THit :class
+        {
+            result = default;
+            if (hits.Length == 0)
+            {
+                return false;
+            }
+            result = hits
+                .Select(hit => hit.collider.GetComponentInParent<THit>())
+                .Where(c => c != null)
+                .FirstOrDefault();
+
+            return result != default;
         }
     }
 }
