@@ -1,42 +1,53 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using RTSPrototype.Abstractions;
+using RTSPrototype.UIModel;
+using RTSPrototype.UIView;
+using UnityEngine;
 
 namespace RTSPrototype.UIPresenter
 {
-    public class SelectionOutlinePresenter :  MonoBehaviour
+    public class SelectionOutlinePresenter : MonoBehaviour
     {
-        [SerializeField] private Camera _camera;
+        [SerializeField] private SelectedValue _selectableValue;
 
-        private Collider _currentSelection;
+        private OutlineSelector _selectedOutlineSelector;
+        private ISelectable _currentSelected;
 
-        private void Update()
+        private void Start()
         {
-            if (EventSystem.current.IsPointerOverGameObject())
-                return;
+            _selectableValue.OnSelected += OnSelected;
+        }
 
-            if (!Input.GetMouseButtonDown(0))
-                return;
-
-            Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out RaycastHit raycastHit);
-
-            var hitSelection = raycastHit.collider;
-
-            if (hitSelection && hitSelection.tag == "Selected")
+        private void OnSelected(ISelectable selectable)
+        {
+            if (_currentSelected == selectable)
             {
-                if (_currentSelection != null)
-                {
-                    _currentSelection.GetComponentInParent<Outline>().enabled = false;
-                }
-                _currentSelection = raycastHit.collider;
-                _currentSelection.GetComponentInParent<Outline>().enabled = true;
+                return;
             }
-            else 
+
+            SetSelected(false);
+            _selectedOutlineSelector = null;
+
+            if (selectable != null)
             {
-                if (_currentSelection)
+                _selectedOutlineSelector = (selectable as Component).GetComponentInParent<OutlineSelector>();
+                SetSelected(true);
+            }
+            else
+            {
+                if (_selectedOutlineSelector != null)
                 {
-                    _currentSelection.GetComponentInParent<Outline>().enabled = false;
-                    _currentSelection = null;
+                    SetSelected(false);
                 }
+            }
+
+            _currentSelected = selectable;
+        }
+
+        private void SetSelected(bool state)
+        {
+            if (_selectedOutlineSelector != null)
+            {
+                _selectedOutlineSelector.ChangeState(state);
             }
         }
     }
