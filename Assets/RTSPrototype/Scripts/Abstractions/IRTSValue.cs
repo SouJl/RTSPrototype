@@ -2,11 +2,11 @@
 
 namespace RTSPrototype.Abstractions
 {
-    public interface IRTSValue<T>
+    public interface IRTSValue<T> 
     {
         T CurrentValue { get; }
 
-        event Action<T> OnSelected;
+        event Action<T> OnNewValue;
 
         void SetValue(T value);
     }

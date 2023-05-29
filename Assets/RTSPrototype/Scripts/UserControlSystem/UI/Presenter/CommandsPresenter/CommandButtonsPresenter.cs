@@ -1,22 +1,18 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 using RTSPrototype.UIModel;
 using RTSPrototype.UIView;
 using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.Commands;
-using RTSPrototype.Abstractions.Commands.CommandInterfaces;
-using RTSPrototype.UIModel.CommandRealization;
-using RTSPrototype.Utils;
 using Zenject;
 
 namespace RTSPrototype.UIPresenter.CommandsPresenter
 {
     public class CommandButtonsPresenter : MonoBehaviour
-    {
-        [SerializeField] private SelectedValue _selectable;
+    {        
         [SerializeField] private CommandButtonsView _view;
 
+        [Inject] private RTSValueBase<ISelectable> _selectable;
         [Inject] private CommandButtonsModel _model;
 
         private ISelectable _currentSelectable;
@@ -28,7 +24,7 @@ namespace RTSPrototype.UIPresenter.CommandsPresenter
             _model.OnCommandCancel += _view.UnblockAllInteractions;
             _model.OnCommandAccepted += _view.BlockInteractions;
 
-            _selectable.OnSelected += OnSelected;
+            _selectable.OnNewValue += OnSelected;
             OnSelected(_selectable.CurrentValue);
         }
 

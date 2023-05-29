@@ -1,19 +1,16 @@
 ﻿using System;
-using UnityEngine;
 using RTSPrototype.Abstractions;
 
 namespace RTSPrototype.UIModel
 {
-    [CreateAssetMenu(fileName = nameof(SelectedValue),  menuName = "RTSPrototype/" + nameof(SelectedValue))]
-    public class SelectedValue : ScriptableObject
+    public class SelectedValue : RTSValueBase<ISelectable>
     {
-        public ISelectable CurrentValue { get; set; }
-        public event Action<ISelectable> OnSelected;
+        public override event Action<ISelectable> OnNewValue;
 
-        public void SetValue(ISelectable value)
+        public override void SetValue(ISelectable value)
         {
             CurrentValue = value;
-            OnSelected?.Invoke(value);
+            OnNewValue?.Invoke(value);
         }
     }
 }

@@ -1,20 +1,20 @@
 ﻿using RTSPrototype.Abstractions;
-using RTSPrototype.UIModel;
 using RTSPrototype.UIView;
 using UnityEngine;
+using Zenject;
 
 namespace RTSPrototype.UIPresenter
 {
     public class SelectionOutlinePresenter : MonoBehaviour
     {
-        [SerializeField] private SelectedValue _selectableValue;
+        [Inject] private RTSValueBase<ISelectable> _selectableValue;
 
         private OutlineSelector _selectedOutlineSelector;
         private ISelectable _currentSelected;
 
         private void Start()
         {
-            _selectableValue.OnSelected += OnSelected;
+            _selectableValue.OnNewValue += OnSelected;
         }
 
         private void OnSelected(ISelectable selectable)

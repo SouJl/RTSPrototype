@@ -1,8 +1,8 @@
 using System.Linq;
 using UnityEngine;
-using RTSPrototype.UIModel;
 using RTSPrototype.Abstractions;
 using UnityEngine.EventSystems;
+using Zenject;
 
 namespace RTSPrototype.UIPresenter 
 {
@@ -10,12 +10,11 @@ namespace RTSPrototype.UIPresenter
     {
         [SerializeField] private Camera _camera;
 
-        [Header("Selection Settings")]
-        [SerializeField] private SelectedValue _selectedObject;
-
         [Header("Get OnClick Position Settings")]
-        [SerializeField] private Vector3Value _groundClicksRMB;
         [SerializeField] private Transform _groundTransform;
+
+        [Inject] private RTSValueBase<ISelectable> _selectedObject;
+        [Inject] private RTSValueBase<Vector3> _groundClicksRMB;
 
         private Plane _groundPlane;
 

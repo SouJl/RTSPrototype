@@ -1,7 +1,7 @@
 ﻿using System;
+using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.Commands;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
-using RTSPrototype.UIModel.CommandCreators;
 using Zenject;
 
 namespace RTSPrototype.UIModel

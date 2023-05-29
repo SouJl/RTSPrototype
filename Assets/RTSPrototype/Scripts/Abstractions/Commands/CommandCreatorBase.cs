@@ -1,7 +1,7 @@
 ﻿using System;
 using RTSPrototype.Abstractions.Commands;
 
-namespace RTSPrototype.UIModel.CommandCreators
+namespace RTSPrototype.Abstractions
 {
     public abstract class CommandCreatorBase<T> where T : ICommand
     {

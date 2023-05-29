@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+﻿using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 using RTSPrototype.UIModel.CommandCreators;
 using RTSPrototype.Utils;
@@ -10,22 +10,31 @@ namespace RTSPrototype.UIModel
     public class UIModelInstaller : MonoInstaller
     {
         [SerializeField] private AssetsContext _legacyContext;
-        [SerializeField] private Vector3Value _vector3Value;
 
         public override void InstallBindings()
         {
             Container.Bind<AssetsContext>().FromInstance(_legacyContext);
-            Container.Bind<Vector3Value>().FromInstance(_vector3Value);
+          
+            BindingValues();
 
+            BindingCommands();
+
+            Container.Bind<CommandButtonsModel>().AsSingle();
+        }
+
+        private void BindingValues()
+        {
+            Container.Bind<RTSValueBase<ISelectable>>().To<SelectedValue>().AsSingle().NonLazy();
+            Container.Bind<RTSValueBase<Vector3>>().To<Vector3Value>().AsSingle().NonLazy();
+        }
+
+        private void BindingCommands()
+        {
             Container.Bind<CommandCreatorBase<IProduceUnitCommand>>().To<ProduceUnitCommandCommandCreator>().AsSingle();
-            
             Container.Bind<CommandCreatorBase<IMoveCommand>>().To<MoveCommandCommandCreator>().AsSingle();
             Container.Bind<CommandCreatorBase<IAttackCommand>>().To<AttackCommandCommandCreator>().AsSingle();
             Container.Bind<CommandCreatorBase<IPatrolCommand>>().To<PatrolCommandCommandCreator>().AsSingle();
             Container.Bind<CommandCreatorBase<IStopCommand>>().To<StopCommandCommandCreator>().AsSingle();
-            
-            Container.Bind<CommandButtonsModel>().AsSingle();
         }
-
     }
 }

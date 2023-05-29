@@ -1,14 +1,14 @@
 ﻿using System;
+using RTSPrototype.Abstractions;
 using UnityEngine;
 
 namespace RTSPrototype.UIModel
 {
-    [CreateAssetMenu(fileName = nameof(Vector3Value), menuName = "RTSPrototype/" + nameof(Vector3Value))]
-    public class Vector3Value : ScriptableObject
+    public class Vector3Value : RTSValueBase<Vector3>
     {
-        public Vector3 CurrentValue { get; private set; }
-        public Action<Vector3> OnNewValue;
-        public void SetValue(Vector3 value)
+        public override event Action<Vector3> OnNewValue;
+
+        public override void SetValue(Vector3 value)
         {
             CurrentValue = value;
             OnNewValue?.Invoke(value);

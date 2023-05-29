@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using RTSPrototype.UIModel;
 using RTSPrototype.Abstractions;
+using Zenject;
 
 namespace RTSPrototype.UIPresenter
 {
@@ -23,11 +23,11 @@ namespace RTSPrototype.UIPresenter
         [SerializeField] private Color _maxRangeColor = Color.green;
         [SerializeField] private float _colorSmooth = 0.5f;
 
-        [SerializeField] private SelectedValue _selectedObject;
+        [Inject] private RTSValueBase<ISelectable> _selectedObject;
 
         private void Start()
         {
-            _selectedObject.OnSelected += OnSelected;
+            _selectedObject.OnNewValue += OnSelected;
             OnSelected(_selectedObject.CurrentValue);
         }
 

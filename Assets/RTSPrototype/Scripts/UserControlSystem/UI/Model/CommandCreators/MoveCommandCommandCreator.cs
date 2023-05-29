@@ -1,4 +1,5 @@
 ﻿using System;
+using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 using RTSPrototype.UIModel.CommandRealization;
 using RTSPrototype.Utils;
@@ -20,12 +21,12 @@ namespace RTSPrototype.UIModel.CommandCreators
         }
 
         [Inject]
-        private void Init(Vector3Value groundClicks)
+        private void Init(RTSValueBase<Vector3> groundClicks)
         {
-            groundClicks.OnNewValue += onNewValue;
+            groundClicks.OnNewValue += OnNewValue;
         }
 
-        private void onNewValue(Vector3 groundClick)
+        private void OnNewValue(Vector3 groundClick)
         {
             _creationCallback?.Invoke(_context.Inject(new MoveCommand(groundClick)));
             _creationCallback = null;
