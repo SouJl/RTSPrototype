@@ -52,7 +52,6 @@ namespace RTSPrototype.UIModel
             commandExecutor.ExecuteCommand(command);
             _commandIsPending = false;
             OnCommandSent?.Invoke();
-
         }
 
         public void OnSelectionChanged() 

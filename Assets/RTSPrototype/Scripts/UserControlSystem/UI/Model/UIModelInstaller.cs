@@ -1,7 +1,6 @@
 ﻿using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 using RTSPrototype.UIModel.CommandCreators;
-using RTSPrototype.Utils;
 using UnityEngine;
 using Zenject;
 
@@ -9,12 +8,8 @@ namespace RTSPrototype.UIModel
 {
     public class UIModelInstaller : MonoInstaller
     {
-        [SerializeField] private AssetsContext _legacyContext;
-
         public override void InstallBindings()
-        {
-            Container.Bind<AssetsContext>().FromInstance(_legacyContext);
-          
+        {          
             BindingValues();
 
             BindingCommands();
