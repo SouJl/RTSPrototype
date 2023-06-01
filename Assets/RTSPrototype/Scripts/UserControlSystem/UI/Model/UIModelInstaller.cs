@@ -1,6 +1,7 @@
 ﻿using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 using RTSPrototype.UIModel.CommandCreators;
+using RTSPrototype.Utils;
 using UnityEngine;
 using Zenject;
 
@@ -19,9 +20,9 @@ namespace RTSPrototype.UIModel
 
         private void BindingValues()
         {
-            Container.Bind<IRTSValue<ISelectable>>().To<SelectedValue>().AsSingle().NonLazy();
-            Container.Bind<IRTSValue<Vector3>>().To<Vector3Value>().AsSingle().NonLazy();
-            Container.Bind<IRTSValue<IAttackable>>().To<AttackableValue>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<SelectedValue>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<Vector3Value>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<AttackableValue>().AsSingle().NonLazy();
         }
 
         private void BindingCommands()

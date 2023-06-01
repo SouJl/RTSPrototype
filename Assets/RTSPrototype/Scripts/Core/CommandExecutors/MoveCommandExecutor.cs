@@ -1,6 +1,7 @@
 ﻿using RTSPrototype.Abstractions.Commands;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace RTSPrototype.Core.CommandExecutors
 {
@@ -11,7 +12,7 @@ namespace RTSPrototype.Core.CommandExecutors
 
         private void ExceuteMove(IMoveCommand command)
         {
-            Debug.Log($"Execute Move by {name} to {command.TargetPosition} position");  
+            GetComponent<NavMeshAgent>().destination = command.TargetPosition;
         }
     }
 }
