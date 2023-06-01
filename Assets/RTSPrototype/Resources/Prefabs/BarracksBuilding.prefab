@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8066867896152870060
 Transform:
@@ -49,7 +49,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8066867896157114027
 Transform:
@@ -84,7 +84,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8066867896194150633
 Transform:
@@ -118,7 +118,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8066867896195152809
 Transform:
@@ -3383,7 +3383,7 @@ GameObject:
   m_TagString: Selected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8066867896356748074
 Transform:
@@ -3427,7 +3427,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8066867896405333709
 Transform:
@@ -3462,7 +3462,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8066867896546409580
 Transform:
@@ -3497,7 +3497,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8066867897216826263
 Transform:
@@ -3529,12 +3529,13 @@ GameObject:
   - component: {fileID: 8066867897219003065}
   - component: {fileID: 7287815285509398939}
   - component: {fileID: 8355340418978068462}
+  - component: {fileID: -454053845646116619}
   m_Layer: 0
   m_Name: BarracksBuilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8066867897219003065
 Transform:
@@ -3586,6 +3587,22 @@ MonoBehaviour:
   _isOutlineEnable: 1
   _onGameobjectOutlines:
   - {fileID: 2801829921817803268}
+--- !u!208 &-454053845646116619
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066867897219003070}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 6.5, y: 6, z: 6.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 6, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8066867897547615137
 GameObject:
   m_ObjectHideFlags: 0
@@ -3600,7 +3617,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8066867897547615136
 Transform:
@@ -3633,7 +3650,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8066867897648476251
 Transform:
@@ -3668,7 +3685,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8066867897868627040
 Transform:
@@ -3701,6 +3718,14 @@ PrefabInstance:
     - target: {fileID: 1545637449054440, guid: c862b8cf9dcdf024a80622aecd0c62c5, type: 3}
       propertyPath: m_Name
       value: Castle Ground + Bright 8x8 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545637449054440, guid: c862b8cf9dcdf024a80622aecd0c62c5, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545637449054440, guid: c862b8cf9dcdf024a80622aecd0c62c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4649270347586298, guid: c862b8cf9dcdf024a80622aecd0c62c5, type: 3}
       propertyPath: m_RootOrder
@@ -3764,6 +3789,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Ground + Bright 8x8 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1545637449054440, guid: c862b8cf9dcdf024a80622aecd0c62c5, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545637449054440, guid: c862b8cf9dcdf024a80622aecd0c62c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4649270347586298, guid: c862b8cf9dcdf024a80622aecd0c62c5, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3825,6 +3858,14 @@ PrefabInstance:
     - target: {fileID: 1156624413784006, guid: 506fc2bf81639f1428791f1b87bf0efa, type: 3}
       propertyPath: m_Name
       value: Castle Wall 13 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156624413784006, guid: 506fc2bf81639f1428791f1b87bf0efa, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156624413784006, guid: 506fc2bf81639f1428791f1b87bf0efa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4012468197697118, guid: 506fc2bf81639f1428791f1b87bf0efa, type: 3}
       propertyPath: m_RootOrder
@@ -3888,6 +3929,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Tower 1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1145749920310612, guid: 41fccb4ef5c533740ad7038d28ca07d5, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145749920310612, guid: 41fccb4ef5c533740ad7038d28ca07d5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4538240499084332, guid: 41fccb4ef5c533740ad7038d28ca07d5, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3949,6 +3998,14 @@ PrefabInstance:
     - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
       propertyPath: m_Name
       value: Castle Fence 3 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4910266802231402, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
       propertyPath: m_RootOrder
@@ -4012,6 +4069,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Fence 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4249441853598242, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -4073,6 +4138,14 @@ PrefabInstance:
     - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
       propertyPath: m_Name
       value: Castle Fence 3 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4910266802231402, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
       propertyPath: m_RootOrder
@@ -4136,6 +4209,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Ground + Bright 8x8 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1545637449054440, guid: c862b8cf9dcdf024a80622aecd0c62c5, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545637449054440, guid: c862b8cf9dcdf024a80622aecd0c62c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4649270347586298, guid: c862b8cf9dcdf024a80622aecd0c62c5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4197,6 +4278,14 @@ PrefabInstance:
     - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
       propertyPath: m_Name
       value: Castle Fence 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4910266802231402, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
       propertyPath: m_RootOrder
@@ -4260,6 +4349,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Fence 3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4910266802231402, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4321,6 +4418,14 @@ PrefabInstance:
     - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
       propertyPath: m_Name
       value: Castle Fence 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4249441853598242, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
       propertyPath: m_RootOrder
@@ -4384,6 +4489,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Tower 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1230523916927094, guid: 4d2e79db32110b9468c58ec2260371df, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230523916927094, guid: 4d2e79db32110b9468c58ec2260371df, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4841025634038322, guid: 4d2e79db32110b9468c58ec2260371df, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -4445,6 +4558,14 @@ PrefabInstance:
     - target: {fileID: 1832208175390078, guid: 04e51660ed2ae664db6107c1f38fb74f, type: 3}
       propertyPath: m_Name
       value: Castle Tower 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832208175390078, guid: 04e51660ed2ae664db6107c1f38fb74f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832208175390078, guid: 04e51660ed2ae664db6107c1f38fb74f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4421037016098364, guid: 04e51660ed2ae664db6107c1f38fb74f, type: 3}
       propertyPath: m_RootOrder
@@ -4508,6 +4629,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Fence 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4249441853598242, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -4569,6 +4698,14 @@ PrefabInstance:
     - target: {fileID: 1145749920310612, guid: 41fccb4ef5c533740ad7038d28ca07d5, type: 3}
       propertyPath: m_Name
       value: Castle Tower 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145749920310612, guid: 41fccb4ef5c533740ad7038d28ca07d5, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145749920310612, guid: 41fccb4ef5c533740ad7038d28ca07d5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4538240499084332, guid: 41fccb4ef5c533740ad7038d28ca07d5, type: 3}
       propertyPath: m_RootOrder
@@ -4632,6 +4769,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Tower 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1145749920310612, guid: 41fccb4ef5c533740ad7038d28ca07d5, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145749920310612, guid: 41fccb4ef5c533740ad7038d28ca07d5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4538240499084332, guid: 41fccb4ef5c533740ad7038d28ca07d5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4693,6 +4838,14 @@ PrefabInstance:
     - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
       propertyPath: m_Name
       value: Castle Fence 2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4249441853598242, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
       propertyPath: m_RootOrder
@@ -4756,6 +4909,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Fence 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4249441853598242, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -4817,6 +4978,14 @@ PrefabInstance:
     - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
       propertyPath: m_Name
       value: Castle Fence 2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4249441853598242, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
       propertyPath: m_RootOrder
@@ -4880,6 +5049,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Wall 13
       objectReference: {fileID: 0}
+    - target: {fileID: 1156624413784006, guid: 506fc2bf81639f1428791f1b87bf0efa, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156624413784006, guid: 506fc2bf81639f1428791f1b87bf0efa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4012468197697118, guid: 506fc2bf81639f1428791f1b87bf0efa, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4942,6 +5119,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Fence 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4249441853598242, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -5000,9 +5185,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8066867897547615136}
     m_Modifications:
+    - target: {fileID: 1109472422821556, guid: d4895ace8ebf3e042bb1866f3a136061, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1109472422821556, guid: d4895ace8ebf3e042bb1866f3a136061, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1735369293756732, guid: d4895ace8ebf3e042bb1866f3a136061, type: 3}
       propertyPath: m_Name
       value: Castle Gate 5 Bars
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735369293756732, guid: d4895ace8ebf3e042bb1866f3a136061, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735369293756732, guid: d4895ace8ebf3e042bb1866f3a136061, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4539040782866476, guid: d4895ace8ebf3e042bb1866f3a136061, type: 3}
       propertyPath: m_RootOrder
@@ -5066,6 +5267,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Fence 3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4910266802231402, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5127,6 +5336,14 @@ PrefabInstance:
     - target: {fileID: 1545637449054440, guid: c862b8cf9dcdf024a80622aecd0c62c5, type: 3}
       propertyPath: m_Name
       value: Castle Ground + Bright 8x8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545637449054440, guid: c862b8cf9dcdf024a80622aecd0c62c5, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545637449054440, guid: c862b8cf9dcdf024a80622aecd0c62c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4649270347586298, guid: c862b8cf9dcdf024a80622aecd0c62c5, type: 3}
       propertyPath: m_RootOrder
@@ -5190,6 +5407,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Fence 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026728341764066, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4249441853598242, guid: f0624e0ee72cbb64198b50158b82211f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -5251,6 +5476,14 @@ PrefabInstance:
     - target: {fileID: 1145749920310612, guid: 41fccb4ef5c533740ad7038d28ca07d5, type: 3}
       propertyPath: m_Name
       value: Castle Tower 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145749920310612, guid: 41fccb4ef5c533740ad7038d28ca07d5, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145749920310612, guid: 41fccb4ef5c533740ad7038d28ca07d5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4538240499084332, guid: 41fccb4ef5c533740ad7038d28ca07d5, type: 3}
       propertyPath: m_RootOrder
@@ -5314,6 +5547,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Fence 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4910266802231402, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5375,6 +5616,14 @@ PrefabInstance:
     - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
       propertyPath: m_Name
       value: Castle Fence 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4910266802231402, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
       propertyPath: m_RootOrder
@@ -5438,6 +5687,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Fence 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886117330199508, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4910266802231402, guid: c2488ed6d725f534e85017afe2ac9eb4, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5496,9 +5753,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8066867897547615136}
     m_Modifications:
+    - target: {fileID: 1109472422821556, guid: d4895ace8ebf3e042bb1866f3a136061, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1109472422821556, guid: d4895ace8ebf3e042bb1866f3a136061, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1735369293756732, guid: d4895ace8ebf3e042bb1866f3a136061, type: 3}
       propertyPath: m_Name
       value: Castle Gate 5 Bars (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735369293756732, guid: d4895ace8ebf3e042bb1866f3a136061, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735369293756732, guid: d4895ace8ebf3e042bb1866f3a136061, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4539040782866476, guid: d4895ace8ebf3e042bb1866f3a136061, type: 3}
       propertyPath: m_RootOrder

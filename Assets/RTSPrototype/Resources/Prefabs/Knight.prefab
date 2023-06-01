@@ -4275,10 +4275,11 @@ GameObject:
   - component: {fileID: 44702440127018510}
   - component: {fileID: -8338744559134179037}
   - component: {fileID: 5059373309771755660}
+  - component: {fileID: 2662519406986286694}
   - component: {fileID: -1543507209928188560}
   - component: {fileID: -2606089863968856385}
   - component: {fileID: 7885453015009718608}
-  - component: {fileID: 2662519406986286694}
+  - component: {fileID: 2308183411555343879}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -4293,8 +4294,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485640635272551687}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.9, y: 0.01, z: 10.68}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4337,11 +4338,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.6
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 3
+  m_Acceleration: 15
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 180
+  m_StoppingDistance: 0.15
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -4375,6 +4376,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fab137123f1fa1499a1847f10707210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 570875334634856597}
+  _movementStop: {fileID: 2308183411555343879}
+  _stopCommandExecutor: {fileID: 7885453015009718608}
+--- !u!114 &2662519406986286694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485640635272551687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bdee218ef4c9094bbb0016cdd348ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isOutlineEnable: 1
+  _onGameobjectOutlines:
+  - {fileID: 8927162879025708775}
 --- !u!114 &-1543507209928188560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4411,7 +4430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fedecfcea2aec6343b1e3dae4f1c6b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2662519406986286694
+--- !u!114 &2308183411555343879
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4420,12 +4439,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 485640635272551687}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bdee218ef4c9094bbb0016cdd348ee8, type: 3}
+  m_Script: {fileID: 11500000, guid: e308d41f57ce948479c6f6b7b65e9957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isOutlineEnable: 1
-  _onGameobjectOutlines:
-  - {fileID: 8927162879025708775}
+  _agent: {fileID: 44702440127018510}
 --- !u!1 &485661691111914127
 GameObject:
   m_ObjectHideFlags: 0

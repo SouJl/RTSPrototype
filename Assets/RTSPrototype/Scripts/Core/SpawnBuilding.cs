@@ -36,7 +36,7 @@ namespace RTSPrototype.Core
             ProduceUnit(command);
 
 
-        private void ProduceUnit(IProduceUnitCommand command)
+        private async void ProduceUnit(IProduceUnitCommand command)
         {
             var spawnPos = new Vector3(
                 _spawnPoint.position.x + Random.Range(_minRange, _maxRange),
