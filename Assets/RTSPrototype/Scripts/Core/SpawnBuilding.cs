@@ -2,6 +2,9 @@ using UnityEngine;
 using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.Commands;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
+using System.Threading.Tasks;
+using System;
+using Random = UnityEngine.Random;
 
 namespace RTSPrototype.Core 
 {
@@ -38,6 +41,8 @@ namespace RTSPrototype.Core
 
         private async void ProduceUnit(IProduceUnitCommand command)
         {
+            await SpawnDelay(1.5f);
+
             var spawnPos = new Vector3(
                 _spawnPoint.position.x + Random.Range(_minRange, _maxRange),
                 0,
@@ -48,8 +53,18 @@ namespace RTSPrototype.Core
                 spawnPos,
                 Quaternion.identity,
                 _unitsParent);
-
         }
+
+
+        private async Task SpawnDelay(float delay)
+        {
+            var endTime = Time.time + delay;
+
+            while(Time.time < endTime) 
+            {
+                await Task.Yield();
+            }
+        } 
 
 
 #if UNITY_EDITOR
