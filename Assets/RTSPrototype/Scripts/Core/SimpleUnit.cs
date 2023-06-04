@@ -11,7 +11,6 @@ namespace RTSPrototype.Core
 
         public Transform PivotPoint => gameObject.transform;
 
-
         [SerializeField] private float _maxHealth = 100f;
         [SerializeField] private Sprite _icon;
 
