@@ -5,6 +5,8 @@ using RTSPrototype.UIView;
 using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.Commands;
 using Zenject;
+using System;
+using UniRx;
 
 namespace RTSPrototype.UIPresenter.CommandsPresenter
 {
@@ -12,7 +14,7 @@ namespace RTSPrototype.UIPresenter.CommandsPresenter
     {        
         [SerializeField] private CommandButtonsView _view;
 
-        [Inject] private IRTSValue<ISelectable> _selectable;
+        [Inject] private IObservable<ISelectable> _selected;
         [Inject] private CommandButtonsModel _model;
 
         private ISelectable _currentSelectable;
@@ -24,8 +26,7 @@ namespace RTSPrototype.UIPresenter.CommandsPresenter
             _model.OnCommandCancel += _view.UnblockAllInteractions;
             _model.OnCommandAccepted += _view.BlockInteractions;
 
-            _selectable.OnNewValue += OnSelected;
-            OnSelected(_selectable.CurrentValue);
+            _selected.Subscribe(OnSelected);
         }
 
         private void OnSelected(ISelectable selected)

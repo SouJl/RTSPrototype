@@ -1,5 +1,7 @@
-﻿using RTSPrototype.Abstractions;
+﻿using System;
+using RTSPrototype.Abstractions;
 using RTSPrototype.UIView;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
@@ -7,14 +9,14 @@ namespace RTSPrototype.UIPresenter
 {
     public class SelectionOutlinePresenter : MonoBehaviour
     {
-        [Inject] private IRTSValue<ISelectable> _selectableValue;
+        [Inject] private IObservable<ISelectable> _selected;
 
         private OutlineSelector _selectedOutlineSelector;
         private ISelectable _currentSelected;
 
         private void Start()
         {
-            _selectableValue.OnNewValue += OnSelected;
+            _selected.Subscribe(OnSelected);
         }
 
         private void OnSelected(ISelectable selectable)

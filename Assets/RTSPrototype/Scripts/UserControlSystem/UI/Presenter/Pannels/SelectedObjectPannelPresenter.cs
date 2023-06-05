@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 using RTSPrototype.Abstractions;
 using Zenject;
+using UniRx;
+using System;
 
 namespace RTSPrototype.UIPresenter
 {
@@ -23,12 +25,11 @@ namespace RTSPrototype.UIPresenter
         [SerializeField] private Color _maxRangeColor = Color.green;
         [SerializeField] private float _colorSmooth = 0.5f;
 
-        [Inject] private IRTSValue<ISelectable> _selectedObject;
+        [Inject] private IObservable<ISelectable> _selected;
 
         private void Start()
         {
-            _selectedObject.OnNewValue += OnSelected;
-            OnSelected(_selectedObject.CurrentValue);
+            _selected.Subscribe(OnSelected);
         }
 
         private void OnSelected(ISelectable selected)
