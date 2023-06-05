@@ -1,24 +1,26 @@
 ﻿using RTSPrototype.Abstractions;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
 namespace RTSPrototype.Core
 {
-    public class AnimatorHandler : MonoBehaviour, IPaused
+    public class AnimatorHandler : MonoBehaviour
     {
         [SerializeField] private Animator _animator;
 
-        [Inject]
-        private void Init(IPauseHandler pauseHandler)
+        [Inject] private IPauseHandler _pauseHandler;
+
+        private void Start()
         {
-            pauseHandler.Register(this);
+            _pauseHandler.IsPaused.Subscribe(OnPause);
         }
 
         public void SetBoolAnimation(string animationName, bool value)
             => _animator.SetBool(animationName, value);
 
 
-        public void SetPause(bool isPaused)
+        private void OnPause(bool isPaused)
         {
             _animator.enabled = !isPaused;
         }

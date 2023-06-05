@@ -1,10 +1,11 @@
-﻿namespace RTSPrototype.Abstractions
-{
-    public interface IPauseHandler : IPaused
-    {
-        bool IsPaused { get;}
+﻿using UniRx;
 
-        void Register(IPaused pausedObject);
-        void UnRegister(IPaused pausedObject);
+namespace RTSPrototype.Abstractions
+{
+    public interface IPauseHandler 
+    {
+        ReactiveProperty<bool> IsPaused { get;}
+
+        void SetPause(bool isPaused);
     }
 }

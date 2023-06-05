@@ -5,24 +5,22 @@ using RTSPrototype.Abstractions.Commands;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 using RTSPrototype.Core.Navigation;
 using RTSPrototype.Utils;
+using UniRx;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
 
 namespace RTSPrototype.Core.CommandExecutors
 {
-    public class MoveCommandExecutor : CommandExecutorBase<IMoveCommand>, IPaused
+    public class MoveCommandExecutor : CommandExecutorBase<IMoveCommand>
     { 
         [SerializeField] private AnimatorHandler _animatorHandler;
         [SerializeField] private UnitMovementStop _movementStop;
         [SerializeField] private StopCommandExecutor _stopCommandExecutor;
         private NavMeshAgent _curentAgent;
 
-        [Inject]
-        private void Init(IPauseHandler pauseHandler) 
-        {
-            pauseHandler.Register(this);
-        }
+        [Inject] private IPauseHandler _pauseHandler;
+
 
         private void Awake()
         {
@@ -46,6 +44,12 @@ namespace RTSPrototype.Core.CommandExecutors
                 Debug.Log($"Cant't find StopCommandExecutor on {name}");
             }
         }
+
+        private void Start()
+        {
+            _pauseHandler.IsPaused.Subscribe(OnPause);
+        }
+
 
         public override void ExcecuteSpecifiedCommand(IMoveCommand command) => 
             ExceuteMove(command);
@@ -72,7 +76,7 @@ namespace RTSPrototype.Core.CommandExecutors
             _animatorHandler.SetBoolAnimation("IsWalk", false);
         }
 
-        public void SetPause(bool isPaused)
+        private void OnPause(bool isPaused)
         {
             _curentAgent.isStopped = isPaused;
         }
