@@ -12,11 +12,11 @@ namespace RTSPrototype.UIPresenter
     {
         [SerializeField] private TMP_InputField _inputField;
         [SerializeField] private Button _menuButton;
-        [SerializeField] private GameObject _menuGo;
+        [SerializeField] private PauseMenuPresenter _pauseMenuGo;
 
         private void Awake()
         {
-            _menuGo.SetActive(false);
+            _pauseMenuGo.SetActive(false);
         }
 
         [Inject]
@@ -32,7 +32,7 @@ namespace RTSPrototype.UIPresenter
             });
 
             _menuButton.OnClickAsObservable()
-                .Subscribe(_ => _menuGo.SetActive(true));
+                .Subscribe(_ => _pauseMenuGo.SetActive(true));
 
         }
     }

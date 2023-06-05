@@ -12,8 +12,13 @@ namespace RTSPrototype.Core
 
         public IObservable<int> GameTime => _gameTime.Select(t => (int)t);
 
+        [Inject] private IPauseHandler _pauseHandler;
+
         public void Tick()
         {
+            if (_pauseHandler.IsPaused)
+                return;
+
             _gameTime.Value += Time.deltaTime;
         }
     }

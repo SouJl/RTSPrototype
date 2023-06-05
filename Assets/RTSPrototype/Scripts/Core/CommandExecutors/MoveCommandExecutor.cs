@@ -1,20 +1,28 @@
 ﻿using System.Threading;
+using System.Threading.Tasks;
+using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.Commands;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 using RTSPrototype.Core.Navigation;
 using RTSPrototype.Utils;
 using UnityEngine;
 using UnityEngine.AI;
+using Zenject;
 
 namespace RTSPrototype.Core.CommandExecutors
 {
-    public class MoveCommandExecutor : CommandExecutorBase<IMoveCommand>
+    public class MoveCommandExecutor : CommandExecutorBase<IMoveCommand>, IPaused
     { 
-        [SerializeField] private Animator _animator;
+        [SerializeField] private AnimatorHandler _animatorHandler;
         [SerializeField] private UnitMovementStop _movementStop;
         [SerializeField] private StopCommandExecutor _stopCommandExecutor;
-
         private NavMeshAgent _curentAgent;
+
+        [Inject]
+        private void Init(IPauseHandler pauseHandler) 
+        {
+            pauseHandler.Register(this);
+        }
 
         private void Awake()
         {
@@ -45,7 +53,7 @@ namespace RTSPrototype.Core.CommandExecutors
         private async void ExceuteMove(IMoveCommand command)
         {
             _curentAgent.destination = command.TargetPosition;
-            _animator.SetBool("IsWalk", true);
+            _animatorHandler.SetBoolAnimation("IsWalk", true);
             _stopCommandExecutor.CancellationTokenSource = new CancellationTokenSource();
             try
             {
@@ -53,7 +61,7 @@ namespace RTSPrototype.Core.CommandExecutors
                     .WithCancellation(
                     _stopCommandExecutor
                     .CancellationTokenSource
-                    .Token);
+                    .Token);  
             }
             catch 
             {
@@ -61,7 +69,12 @@ namespace RTSPrototype.Core.CommandExecutors
                 _curentAgent.ResetPath();
             }
             _stopCommandExecutor.CancellationTokenSource = null;
-            _animator.SetBool("IsWalk", false);
+            _animatorHandler.SetBoolAnimation("IsWalk", false);
+        }
+
+        public void SetPause(bool isPaused)
+        {
+            _curentAgent.isStopped = isPaused;
         }
     }
 }

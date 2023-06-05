@@ -7,6 +7,7 @@ namespace RTSPrototype.Core
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<TimeModel>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PauseHandlerModel>().AsSingle().NonLazy();
         }
     }
 }

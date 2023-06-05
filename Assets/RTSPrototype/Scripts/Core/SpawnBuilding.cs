@@ -5,6 +5,8 @@ using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 using System.Threading.Tasks;
 using System;
 using Random = UnityEngine.Random;
+using Zenject;
+using System.ComponentModel;
 
 namespace RTSPrototype.Core 
 {
@@ -19,6 +21,8 @@ namespace RTSPrototype.Core
         [Header("Selectable Settings")]
         [SerializeField] private float _maxHealth;
         [SerializeField] private Sprite _icon;
+
+        [Inject] private DiContainer _diContainer;
 
         #region ISelectable
 
@@ -48,13 +52,12 @@ namespace RTSPrototype.Core
                 0,
                 _spawnPoint.position.z + Random.Range(_minRange, _maxRange));
 
-            Instantiate(
+            _diContainer.InstantiatePrefab(
                 command.UnitPrefab,
                 spawnPos,
                 Quaternion.identity,
                 _unitsParent);
         }
-
 
         private async Task SpawnDelay(float delay)
         {

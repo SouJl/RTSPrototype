@@ -4271,7 +4271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 482038926648358217}
-  - component: {fileID: 570875334634856597}
+  - component: {fileID: 1514895521087688642}
   - component: {fileID: 44702440127018510}
   - component: {fileID: -8338744559134179037}
   - component: {fileID: 5059373309771755660}
@@ -4280,6 +4280,7 @@ GameObject:
   - component: {fileID: -2606089863968856385}
   - component: {fileID: 7885453015009718608}
   - component: {fileID: 2308183411555343879}
+  - component: {fileID: 287370418499313949}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -4308,7 +4309,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &570875334634856597
+--- !u!95 &1514895521087688642
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -4319,7 +4320,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 445581dbfbbea06408d552fa1aca77fc, type: 3}
   m_Controller: {fileID: 9100000, guid: 6e335ea3dcf2f774a8afdfc5f838035f, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
@@ -4376,7 +4377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fab137123f1fa1499a1847f10707210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 570875334634856597}
+  _animatorHandler: {fileID: 287370418499313949}
   _movementStop: {fileID: 2308183411555343879}
   _stopCommandExecutor: {fileID: 7885453015009718608}
 --- !u!114 &2662519406986286694
@@ -4443,6 +4444,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agent: {fileID: 44702440127018510}
+--- !u!114 &287370418499313949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485640635272551687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f56515006d6f0f94c8d7206017f0a890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1514895521087688642}
 --- !u!1 &485661691111914127
 GameObject:
   m_ObjectHideFlags: 0
