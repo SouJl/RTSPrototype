@@ -1,19 +1,26 @@
 ﻿using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 using RTSPrototype.UIModel.CommandCreators;
+using RTSPrototype.UIModel.Data;
+using UnityEngine;
 using Zenject;
 
 namespace RTSPrototype.UIModel
 {
     public class UIModelInstaller : MonoInstaller
     {
+        [SerializeField] private ProducedUnitData _producedUnitData;
+
         public override void InstallBindings()
-        {          
+        {
+            Container.Bind<IProducedUnitData>().WithId("Knight").FromInstance(_producedUnitData);
+
             BindingValues();
 
             BindingCommands();
 
             Container.Bind<CommandButtonsModel>().AsSingle();
+            Container.Bind<ProduceUnitsUIModel>().AsSingle();
         }
 
         private void BindingValues()

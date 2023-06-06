@@ -2,7 +2,7 @@
 
 namespace RTSPrototype.Abstractions
 {
-    public interface IIconHandler
+    public interface IIconHolder
     {
         Sprite Icon { get; }
     }

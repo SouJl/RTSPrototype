@@ -1,14 +1,14 @@
-using UnityEngine;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
-using RTSPrototype.Utils;
+using Zenject;
+using RTSPrototype.Abstractions;
 
 namespace RTSPrototype.UIModel.CommandRealization 
 {
     public class ProduceUnitCommand : IProduceUnitCommand
     {
-        
-        [InjectAsset("Knight")] private GameObject _unitPrefab;
-        public GameObject UnitPrefab => _unitPrefab;
+        [Inject(Id = "Knight")] private IProducedUnitData _data;
+
+        public IProducedUnitData Data => _data;
     }
 }
 
