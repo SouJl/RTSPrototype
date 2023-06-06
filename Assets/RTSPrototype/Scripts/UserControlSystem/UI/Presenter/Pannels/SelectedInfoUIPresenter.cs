@@ -8,7 +8,7 @@ using System;
 
 namespace RTSPrototype.UIPresenter
 {
-    public class SelectedObjectPannelPresenter : MonoBehaviour
+    public class SelectedInfoUIPresenter : MonoBehaviour
     {
         [SerializeField] private TMP_Text _selectedName;
 
