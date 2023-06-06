@@ -5,11 +5,15 @@ namespace RTSPrototype.Core
 {
     public class SimpleUnit : MonoBehaviour, ISelectable
     {
+        #region ISelectable
+
         public float CurrentHealth => _currentHealth;
         public float MaxHealth => _maxHealth;
         public Sprite Icon => _icon;
 
         public Transform PivotPoint => gameObject.transform;
+
+        #endregion
 
         [SerializeField] private float _maxHealth = 100f;
         [SerializeField] private Sprite _icon;
