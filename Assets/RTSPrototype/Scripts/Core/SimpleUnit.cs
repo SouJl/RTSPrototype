@@ -11,10 +11,12 @@ namespace RTSPrototype.Core
         public float MaxHealth => _maxHealth;
         public Sprite Icon => _icon;
 
+        public string Name => _name;
         public Transform PivotPoint => gameObject.transform;
-
+ 
         #endregion
 
+        [SerializeField] private string _name;
         [SerializeField] private float _maxHealth = 100f;
         [SerializeField] private Sprite _icon;
 

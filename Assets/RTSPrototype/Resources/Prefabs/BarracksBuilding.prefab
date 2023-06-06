@@ -3567,6 +3567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072fcac53117cf34eb1a53d4c5b93aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _name: Knight's Barracks
   _maxHealth: 1500
   _icon: {fileID: 21300000, guid: fc291bb7b76aca04e863031ad1f8c33f, type: 3}
 --- !u!114 &8355340418978068462

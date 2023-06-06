@@ -4363,6 +4363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391421f06a2c0334c9397fba3e927321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _name: Knight
   _maxHealth: 100
   _icon: {fileID: 21300000, guid: a998e712aa7b3b345aa04987e91928d0, type: 3}
 --- !u!114 &5059373309771755660

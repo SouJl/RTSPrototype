@@ -10,6 +10,8 @@ namespace RTSPrototype.UIPresenter
 {
     public class SelectedObjectPannelPresenter : MonoBehaviour
     {
+        [SerializeField] private TMP_Text _selectedName;
+
         [Header("Icon Settings")]
         [SerializeField] private GameObject _iconObject;
         [SerializeField] private Image _selectedImage;
@@ -36,6 +38,8 @@ namespace RTSPrototype.UIPresenter
         {
             bool selectedState = selected != null;
 
+            _selectedName.enabled = selectedState;
+
             _iconObject.SetActive(selectedState);
             _selectedImage.enabled = selectedState;
 
@@ -44,6 +48,8 @@ namespace RTSPrototype.UIPresenter
 
             if(selected != null)
             {
+                _selectedName.text = selected.Name;
+
                 _selectedImage.sprite = selected.Icon;
 
                 SetupHealth(selected);
