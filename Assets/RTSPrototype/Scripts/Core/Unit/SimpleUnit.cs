@@ -3,7 +3,7 @@ using RTSPrototype.Abstractions;
 
 namespace RTSPrototype.Core.Unit
 {
-    public class SimpleUnit : MonoBehaviour, ISelectable
+    public class SimpleUnit : MonoBehaviour, IUnit
     {
         #region ISelectable
 

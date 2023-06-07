@@ -8938,7 +8938,7 @@ PrefabInstance:
     - target: {fileID: 6284736352392815303, guid: aea3d24e902892c4daa37071685981c7, type: 3}
       propertyPath: _spawnPoint
       value: 
-      objectReference: {fileID: 2016057220}
+      objectReference: {fileID: 0}
     - target: {fileID: 6284736352392815303, guid: aea3d24e902892c4daa37071685981c7, type: 3}
       propertyPath: _unitsParent
       value: 
@@ -8958,7 +8958,7 @@ PrefabInstance:
     - target: {fileID: 7287815285509398939, guid: aea3d24e902892c4daa37071685981c7, type: 3}
       propertyPath: _spawnPoint
       value: 
-      objectReference: {fileID: 2016057220}
+      objectReference: {fileID: 0}
     - target: {fileID: 7287815285509398939, guid: aea3d24e902892c4daa37071685981c7, type: 3}
       propertyPath: _unitPrefab
       value: 
@@ -10000,37 +10000,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &2016057219
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2016057220}
-  m_Layer: 0
-  m_Name: SpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2016057220
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016057219}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.100006, y: 0, z: 22.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2086083768}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2018105169
 GameObject:
   m_ObjectHideFlags: 0
@@ -10288,7 +10257,6 @@ Transform:
   - {fileID: 1623639763}
   - {fileID: 1110754810}
   - {fileID: 1980504124}
-  - {fileID: 2016057220}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
