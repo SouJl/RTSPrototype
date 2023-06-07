@@ -7,6 +7,7 @@ using RTSPrototype.Abstractions.Commands;
 using Zenject;
 using System;
 using UniRx;
+using UnityEngine.UI;
 
 namespace RTSPrototype.UIPresenter.CommandsPresenter
 {
@@ -52,7 +53,8 @@ namespace RTSPrototype.UIPresenter.CommandsPresenter
                     .AddRange((selected as Component)
                     .GetComponentsInParent<ICommandExecutor>());
 
-                _view.MakeLayout(commandExecutors);
+                var queue = (selected as Component).GetComponentInParent<ICommandsQueue>();
+                _view.MakeLayout(commandExecutors, queue);
             }
         }
     }

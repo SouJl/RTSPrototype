@@ -2,6 +2,7 @@
 using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.Commands;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
+using UnityEngine;
 using Zenject;
 
 namespace RTSPrototype.UIModel
@@ -20,7 +21,7 @@ namespace RTSPrototype.UIModel
 
         private bool _commandIsPending;
 
-        public void OnCommandButtonClick(ICommandExecutor commandExecutor) 
+        public void OnCommandButtonClick(ICommandExecutor commandExecutor, ICommandsQueue commandsQueue) 
         {
             if (_commandIsPending) 
             {
@@ -30,26 +31,30 @@ namespace RTSPrototype.UIModel
             OnCommandAccepted?.Invoke(commandExecutor);
 
             _unitProducer.ProcessCommandExecutor(commandExecutor, command => 
-                            ExecuteCommandWrapper(commandExecutor, command));
+                            ExecuteCommandWrapper(commandsQueue, command));
             
             _mover.ProcessCommandExecutor(commandExecutor, command =>
-                            ExecuteCommandWrapper(commandExecutor, command));
+                            ExecuteCommandWrapper(commandsQueue, command));
 
             _attacker.ProcessCommandExecutor(commandExecutor, command =>
-                            ExecuteCommandWrapper(commandExecutor, command));
+                            ExecuteCommandWrapper(commandsQueue, command));
             
             _patroller.ProcessCommandExecutor(commandExecutor, command => 
-                            ExecuteCommandWrapper(commandExecutor, command));
+                            ExecuteCommandWrapper(commandsQueue, command));
 
             _stopper.ProcessCommandExecutor(commandExecutor, command =>
-                            ExecuteCommandWrapper(commandExecutor, command));
+                            ExecuteCommandWrapper(commandsQueue, command));
         }
 
         public void ExecuteCommandWrapper(
-            ICommandExecutor commandExecutor, 
+            ICommandsQueue commandsQueue, 
             object command)
         {
-            commandExecutor.TryExecuteCommand(command);
+            if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
+            {
+                commandsQueue.Clear();
+            }
+            commandsQueue.EnqueueCommand(command);
             _commandIsPending = false;
             OnCommandSent?.Invoke();
         }
@@ -58,7 +63,6 @@ namespace RTSPrototype.UIModel
         {
             _commandIsPending = false;
             ProcessOnCancel();
-
         }
 
         private void ProcessOnCancel()

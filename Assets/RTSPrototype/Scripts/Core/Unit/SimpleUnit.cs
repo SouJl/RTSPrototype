@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using RTSPrototype.Abstractions;
 
-namespace RTSPrototype.Core
+namespace RTSPrototype.Core.Unit
 {
     public class SimpleUnit : MonoBehaviour, ISelectable
     {

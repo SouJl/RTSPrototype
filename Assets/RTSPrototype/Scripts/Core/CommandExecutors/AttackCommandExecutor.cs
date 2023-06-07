@@ -8,7 +8,7 @@ namespace RTSPrototype.Core.CommandExecutors
     public class AttackCommandExecutor : CommandExecutorBase<IAttackCommand>
     {
         public override async Task ExecuteSpecificCommand(IAttackCommand command) =>
-            ExecuteAttack(command);
+             ExecuteAttack(command);
 
         private void ExecuteAttack(IAttackCommand command) 
         {

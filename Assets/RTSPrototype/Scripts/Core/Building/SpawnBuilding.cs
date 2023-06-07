@@ -1,7 +1,7 @@
 using UnityEngine;
 using RTSPrototype.Abstractions;
 
-namespace RTSPrototype.Core 
+namespace RTSPrototype.Core.Building 
 {
     public class SpawnBuilding : MonoBehaviour, ISelectable, IAttackable
     {

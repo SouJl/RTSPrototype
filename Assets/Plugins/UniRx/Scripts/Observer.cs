@@ -488,6 +488,10 @@ namespace UniRx
         {
             return source.Subscribe(Observer.CreateSubscribeWithState3Observer(state1, state2, state3, onNext, onError, onCompleted));
         }
+
+        public static IDisposable Subscribe<T1>(this IObservable<CollectionAddEvent<T1>> source, Action<T1, int> onNext) => 
+            Subscribe(source, t => onNext(t.Value, t.Index));
+
     }
 
     internal static class Stubs

@@ -5,12 +5,13 @@ using UnityEngine.UI;
 using RTSPrototype.Abstractions.Commands;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 using System.Collections.Generic;
+using RTSPrototype.Abstractions;
 
 namespace RTSPrototype.UIView 
 {
     public class CommandButtonsView : MonoBehaviour
     {
-        public event Action<ICommandExecutor> OnClick;
+        public Action<ICommandExecutor, ICommandsQueue> OnClick;
 
         [Header("Action Buttons")]
         [SerializeField] private GameObject _moveButton;
@@ -50,7 +51,7 @@ namespace RTSPrototype.UIView
             _produceUnitButton.GetComponent<Selectable>().interactable = value;
         }
 
-        public void MakeLayout(IList<ICommandExecutor> commandExecutors)
+        public void MakeLayout(IList<ICommandExecutor> commandExecutors, ICommandsQueue queue)
         {
             for (int i = 0; i < commandExecutors.Count; i++) 
             {
@@ -65,7 +66,7 @@ namespace RTSPrototype.UIView
 
                 buttonGameObject.SetActive(true);
                 var button = buttonGameObject.GetComponent<Button>();
-                button.onClick.AddListener(() => OnClick?.Invoke(currentExecutor));
+                button.onClick.AddListener(() => OnClick?.Invoke(currentExecutor, queue));
             }
         }
 

@@ -21,7 +21,6 @@ namespace RTSPrototype.Core.CommandExecutors
 
         [Inject] private IPauseHandler _pauseHandler;
 
-
         private void Awake()
         {
             _curentAgent = GetComponent<NavMeshAgent>();
@@ -52,9 +51,9 @@ namespace RTSPrototype.Core.CommandExecutors
 
 
         public override async Task ExecuteSpecificCommand(IMoveCommand command) => 
-            ExceuteMove(command);
+             await ExceuteMove(command);
 
-        private async void ExceuteMove(IMoveCommand command)
+        private async Task ExceuteMove(IMoveCommand command)
         {
             _curentAgent.destination = command.TargetPosition;
             _animatorHandler.SetBoolAnimation("IsWalk", true);

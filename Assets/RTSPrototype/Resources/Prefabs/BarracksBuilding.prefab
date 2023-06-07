@@ -3531,6 +3531,9 @@ GameObject:
   - component: {fileID: 8355340418978068462}
   - component: {fileID: -454053845646116619}
   - component: {fileID: 6284736352392815303}
+  - component: {fileID: 7253063500871457216}
+  - component: {fileID: 306811180625710957}
+  - component: {fileID: 2288826706984024569}
   m_Layer: 0
   m_Name: BarracksBuilding
   m_TagString: Untagged
@@ -3617,6 +3620,48 @@ MonoBehaviour:
   _spawnPoint: {fileID: 0}
   _minRange: -10
   _maxRange: 10
+--- !u!114 &7253063500871457216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066867897219003070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb84f4a38371db44a048b2ef38b6e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &306811180625710957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066867897219003070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 2288826706984024569}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
+--- !u!114 &2288826706984024569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066867897219003070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad59dd28a893c8f48a6a8f00e3dc4f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8066867897547615137
 GameObject:
   m_ObjectHideFlags: 0
