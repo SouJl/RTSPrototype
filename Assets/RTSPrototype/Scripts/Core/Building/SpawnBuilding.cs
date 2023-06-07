@@ -23,6 +23,8 @@ namespace RTSPrototype.Core.Building
         [SerializeField] private Sprite _icon;
 
         private float _currentHealth = 1200f;
+
+        public Vector3 RallyPoint { get; set; }
     }
 }
 

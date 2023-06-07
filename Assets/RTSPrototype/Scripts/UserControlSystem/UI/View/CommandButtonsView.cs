@@ -13,13 +13,16 @@ namespace RTSPrototype.UIView
     {
         public Action<ICommandExecutor, ICommandsQueue> OnClick;
 
-        [Header("Action Buttons")]
+        [Header("Units Buttons")]
         [SerializeField] private GameObject _moveButton;
         [SerializeField] private GameObject _attackButton;
         [SerializeField] private GameObject _patrolButton;
         [SerializeField] private GameObject _stopButton;
-        [Header("Create Buttons")]
+
+        [Space(10)]
+        [Header("Building Buttons")]
         [SerializeField] private GameObject _produceUnitButton;
+        [SerializeField] private GameObject _setRallyPointButton;
 
         private Dictionary<Type, GameObject> _buttonsDictionary;
         private void Start()
@@ -30,7 +33,9 @@ namespace RTSPrototype.UIView
             _buttonsDictionary.Add(typeof(CommandExecutorBase<IMoveCommand>), _moveButton);
             _buttonsDictionary.Add(typeof(CommandExecutorBase<IPatrolCommand>), _patrolButton);
             _buttonsDictionary.Add(typeof(CommandExecutorBase<IStopCommand>), _stopButton);
+
             _buttonsDictionary.Add(typeof(CommandExecutorBase<IProduceUnitCommand>),_produceUnitButton);
+            _buttonsDictionary.Add(typeof(CommandExecutorBase<ISetRallyPointCommand>), _setRallyPointButton);
         }
 
         public void BlockInteractions(ICommandExecutor ce)
@@ -49,6 +54,7 @@ namespace RTSPrototype.UIView
             _patrolButton.GetComponent<Selectable>().interactable = value;
             _stopButton.GetComponent<Selectable>().interactable = value;
             _produceUnitButton.GetComponent<Selectable>().interactable = value;
+            _setRallyPointButton.GetComponent<Selectable>().interactable = value;
         }
 
         public void MakeLayout(IList<ICommandExecutor> commandExecutors, ICommandsQueue queue)

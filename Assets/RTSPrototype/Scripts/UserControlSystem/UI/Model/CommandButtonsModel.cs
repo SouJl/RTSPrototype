@@ -12,12 +12,14 @@ namespace RTSPrototype.UIModel
         public event Action<ICommandExecutor> OnCommandAccepted;
         public event Action OnCommandSent;
         public event Action OnCommandCancel;
-
-        [Inject] private CommandCreatorBase<IProduceUnitCommand> _unitProducer;
+ 
         [Inject] private CommandCreatorBase<IMoveCommand> _mover;
         [Inject] private CommandCreatorBase<IAttackCommand> _attacker;
         [Inject] private CommandCreatorBase<IPatrolCommand> _patroller;
         [Inject] private CommandCreatorBase<IStopCommand> _stopper;
+
+        [Inject] private CommandCreatorBase<IProduceUnitCommand> _unitProducer;
+        [Inject] private CommandCreatorBase<ISetRallyPointCommand> _setRallyPointProducer;
 
         private bool _commandIsPending;
 
@@ -29,21 +31,25 @@ namespace RTSPrototype.UIModel
             }
             _commandIsPending = true;
             OnCommandAccepted?.Invoke(commandExecutor);
-
-            _unitProducer.ProcessCommandExecutor(commandExecutor, command => 
-                            ExecuteCommandWrapper(commandsQueue, command));
             
-            _mover.ProcessCommandExecutor(commandExecutor, command =>
-                            ExecuteCommandWrapper(commandsQueue, command));
+            _mover.ProcessCommandExecutor(commandExecutor, command 
+                => ExecuteCommandWrapper(commandsQueue, command));
 
-            _attacker.ProcessCommandExecutor(commandExecutor, command =>
-                            ExecuteCommandWrapper(commandsQueue, command));
+            _attacker.ProcessCommandExecutor(commandExecutor, command 
+                => ExecuteCommandWrapper(commandsQueue, command));
             
-            _patroller.ProcessCommandExecutor(commandExecutor, command => 
-                            ExecuteCommandWrapper(commandsQueue, command));
+            _patroller.ProcessCommandExecutor(commandExecutor, command 
+                => ExecuteCommandWrapper(commandsQueue, command));
 
-            _stopper.ProcessCommandExecutor(commandExecutor, command =>
-                            ExecuteCommandWrapper(commandsQueue, command));
+            _stopper.ProcessCommandExecutor(commandExecutor, command 
+                => ExecuteCommandWrapper(commandsQueue, command));
+            
+            _unitProducer.ProcessCommandExecutor(commandExecutor, command 
+                => ExecuteCommandWrapper(commandsQueue, command));
+            
+            _setRallyPointProducer.ProcessCommandExecutor(commandExecutor, command 
+                => ExecuteCommandWrapper(commandsQueue, command));
+
         }
 
         public void ExecuteCommandWrapper(

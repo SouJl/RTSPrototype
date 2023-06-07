@@ -6,6 +6,8 @@ using RTSPrototype.Abstractions;
 using UniRx;
 using RTSPrototype.Utils;
 using System.Threading.Tasks;
+using RTSPrototype.Core.Building;
+using RTSPrototype.Core.CommandRealization;
 
 namespace RTSPrototype.Core.CommandExecutors
 {
@@ -14,7 +16,7 @@ namespace RTSPrototype.Core.CommandExecutors
         public IReadOnlyReactiveCollection<IUnitProductionTask> Queue => _queue;
 
         [SerializeField] private Transform _unitsParent;
-        [SerializeField] private Transform _spawnPoint;
+        [SerializeField] private Transform _spawnPosition;
         [SerializeField] private float _minRange = -5f;
         [SerializeField] private float _maxRange = 5f;
 
@@ -39,16 +41,17 @@ namespace RTSPrototype.Core.CommandExecutors
             {
                 removeTaskAtIndex(0);
 
-                var spawnPos = new Vector3(
-                    _spawnPoint.position.x + Random.Range(_minRange, _maxRange),
-                    0,
-                    _spawnPoint.position.z + Random.Range(_minRange, _maxRange));
+                var instance 
+                    = _diContainer.InstantiatePrefab(
+                        innerTask.UnitPrefab,
+                        _spawnPosition.position, 
+                        Quaternion.identity,
+                        _unitsParent);
 
-                   _diContainer.InstantiatePrefab(
-                       innerTask.UnitPrefab,
-                       spawnPos,
-                       Quaternion.identity,
-                       _unitsParent);
+                var queue = instance.GetComponent<ICommandsQueue>();
+                var mainBuilding = GetComponent<SpawnBuilding>();
+
+                queue.EnqueueCommand(new MoveCommand(mainBuilding.RallyPoint));
             }
 
         }
@@ -76,19 +79,5 @@ namespace RTSPrototype.Core.CommandExecutors
             }
             _queue.RemoveAt(_queue.Count - 1);
         }
-
-#if UNITY_EDITOR
-
-        private void OnDrawGizmos()
-        {
-            if (!_spawnPoint) return;
-
-            UnityEditor.Handles.color = Color.red;
-            UnityEditor.Handles.DrawWireDisc(
-                _spawnPoint.position,
-                _spawnPoint.transform.up,
-                (_maxRange - _minRange) / 2f);
-        }
-#endif
     }
 }
