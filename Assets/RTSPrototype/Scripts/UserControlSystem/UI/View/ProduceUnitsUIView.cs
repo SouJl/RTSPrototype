@@ -55,13 +55,12 @@ namespace RTSPrototype.UIView
 
         public void RemoveTask(int index)
         {
-            _currentProducedIcon.sprite = null;
-
             _imageHolders[index].SetActive(false);
             _images[index].sprite = null;
 
             if (index == 0)
-            { 
+            {
+                _currentProducedIcon.sprite = null;
                 _productionProgressSlider.gameObject.SetActive(false);
                 _currentUnitName.text = string.Empty;
                 _currentUnitName.enabled = false;

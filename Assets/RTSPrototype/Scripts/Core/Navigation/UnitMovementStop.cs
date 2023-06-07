@@ -27,7 +27,8 @@ namespace RTSPrototype.Core.Navigation
                 .Where(collision => collision.collider.GetComponentInParent<IUnit>() != null)
                 .Select(_ => Time.frameCount)
                 .Distinct()
-                .Buffer(_throttleFrames).Where(buffer =>
+                .Buffer(_throttleFrames)
+                .Where(buffer =>
                 {
                     for (int i = 1; i < buffer.Count; i++)
                     {
