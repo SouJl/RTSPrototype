@@ -5,6 +5,7 @@ using UnityEngine;
 using RTSPrototype.Abstractions;
 using UniRx;
 using RTSPrototype.Utils;
+using System.Threading.Tasks;
 
 namespace RTSPrototype.Core.CommandExecutors
 {
@@ -52,7 +53,7 @@ namespace RTSPrototype.Core.CommandExecutors
 
         }
 
-        public override void ExcecuteSpecifiedCommand(IProduceUnitCommand command) =>
+        public override async Task ExecuteSpecificCommand(IProduceUnitCommand command) =>
             ProduceUnit(command);
         
         public void Cancel(int index) => removeTaskAtIndex(index);

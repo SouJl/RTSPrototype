@@ -3,7 +3,7 @@ using RTSPrototype.Abstractions.Commands;
 
 namespace RTSPrototype.Abstractions
 {
-    public abstract class CommandCreatorBase<T> where T : ICommand
+    public abstract class CommandCreatorBase<T> where T : class, ICommand
     {
         public ICommandExecutor ProcessCommandExecutor(
             ICommandExecutor commandExecutor, 

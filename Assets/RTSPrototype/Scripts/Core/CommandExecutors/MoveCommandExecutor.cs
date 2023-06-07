@@ -51,7 +51,7 @@ namespace RTSPrototype.Core.CommandExecutors
         }
 
 
-        public override void ExcecuteSpecifiedCommand(IMoveCommand command) => 
+        public override async Task ExecuteSpecificCommand(IMoveCommand command) => 
             ExceuteMove(command);
 
         private async void ExceuteMove(IMoveCommand command)

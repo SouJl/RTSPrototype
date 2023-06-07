@@ -49,7 +49,7 @@ namespace RTSPrototype.UIModel
             ICommandExecutor commandExecutor, 
             object command)
         {
-            commandExecutor.ExecuteCommand(command);
+            commandExecutor.TryExecuteCommand(command);
             _commandIsPending = false;
             OnCommandSent?.Invoke();
         }
