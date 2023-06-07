@@ -4,6 +4,7 @@ using Zenject;
 using UnityEngine;
 using RTSPrototype.Abstractions;
 using UniRx;
+using RTSPrototype.Utils;
 
 namespace RTSPrototype.Core.CommandExecutors
 {
@@ -15,7 +16,6 @@ namespace RTSPrototype.Core.CommandExecutors
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private float _minRange = -5f;
         [SerializeField] private float _maxRange = 5f;
-        [SerializeField] private int _maximumUnitsInQueue = 6;
 
         [Inject] private DiContainer _diContainer;
 
@@ -59,7 +59,7 @@ namespace RTSPrototype.Core.CommandExecutors
 
         private void ProduceUnit(IProduceUnitCommand command)
         {
-            if (_queue.Count == _maximumUnitsInQueue)
+            if (_queue.Count == Const.MaximumUnitsInQueue)
             {
                 return;
             }
