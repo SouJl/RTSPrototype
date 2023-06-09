@@ -3,10 +3,15 @@ using UnityEngine;
 using Object = UnityEngine.Object;
 
 
-namespace RTSPrototype.Utils
+namespace RTSPrototype.Abstractions.ScriptableObjects
 {
+    public interface IAssetContext
+    {
+        Object GetObjectOfType(Type targetType, string targetName = null);
+    }
+
     [CreateAssetMenu(fileName = nameof(AssetsContext), menuName = "RTSPrototype/" + nameof(AssetsContext))]
-    public class AssetsContext : ScriptableObject
+    public class AssetsContext : ScriptableObject, IAssetContext
     {
         [SerializeField] private Object[] _assetObjects;
 

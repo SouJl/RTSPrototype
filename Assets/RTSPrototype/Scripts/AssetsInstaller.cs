@@ -1,4 +1,4 @@
-using RTSPrototype.Utils;
+using RTSPrototype.Abstractions.ScriptableObjects;
 using UnityEngine;
 using Zenject;
 
@@ -9,6 +9,6 @@ public class AssetsInstaller : ScriptableObjectInstaller<AssetsInstaller>
 
     public override void InstallBindings()
     {
-        Container.Bind<AssetsContext>().FromInstance(_legacyContext);
+        Container.Bind<IAssetContext>().FromInstance(_legacyContext);
     }
 }

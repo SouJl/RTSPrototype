@@ -1,15 +1,16 @@
 ﻿using System;
 using RTSPrototype.Abstractions;
+using RTSPrototype.Abstractions.AssetsInjector;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
+using RTSPrototype.Abstractions.ScriptableObjects;
 using RTSPrototype.UIModel.CommandRealization;
-using RTSPrototype.Utils;
 using Zenject;
 
 namespace RTSPrototype.UIModel.CommandCreators
 {
     public class StopCommandCommandCreator : CommandCreatorBase<IStopCommand>
     {
-        [Inject] private AssetsContext _context;
+        [Inject] private IAssetContext _context;
 
         protected override void classSpecificCommandCreation(Action<IStopCommand> creationCallback)
         {

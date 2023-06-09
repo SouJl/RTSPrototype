@@ -1,7 +1,6 @@
 using System;
 
-
-namespace RTSPrototype.Utils 
+namespace RTSPrototype.Abstractions.AssetsInjector
 {
     [AttributeUsage(AttributeTargets.Field)]
     public class InjectAssetAttribute : Attribute

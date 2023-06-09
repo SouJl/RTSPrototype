@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading;
+using RTSPrototype.Abstractions.AssetsInjector;
 using RTSPrototype.Abstractions.Commands;
+using RTSPrototype.Abstractions.ScriptableObjects;
 using RTSPrototype.Utils;
 using Zenject;
 
@@ -8,7 +10,7 @@ namespace RTSPrototype.Abstractions
 {
     public abstract class CancellableCommandCreatorBase<TCommand, TArgument> : CommandCreatorBase<TCommand> where TCommand : class, ICommand
     {
-        [Inject] private AssetsContext _context;
+        [Inject] private IAssetContext _context;
         [Inject] private IAwaitable<TArgument> _awaitableArgument;
 
         private CancellationTokenSource _ctSource;

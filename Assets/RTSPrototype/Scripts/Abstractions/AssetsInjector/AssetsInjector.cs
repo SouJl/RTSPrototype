@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Reflection;
+using RTSPrototype.Abstractions.ScriptableObjects;
 
-namespace RTSPrototype.Utils
+namespace RTSPrototype.Abstractions.AssetsInjector
 {
     public static class AssetsInjector
     {
         private static readonly Type _injectAssetAttributeType = typeof(InjectAssetAttribute);
 
-        public static T Inject<T>(this AssetsContext context, T target)
+        public static T Inject<T>(this IAssetContext context, T target)
         {
             var targetType = target.GetType();
 
             do
             {
                 var targetFields = targetType.GetFields(
-                    BindingFlags.NonPublic | 
-                    BindingFlags.Public | 
+                    BindingFlags.NonPublic |
+                    BindingFlags.Public |
                     BindingFlags.Instance);
 
                 for (int i = 0; i < targetFields.Length; i++)
