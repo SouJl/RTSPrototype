@@ -45,9 +45,9 @@ namespace RTSPrototype.UIView
                 .GetComponent<Selectable>().interactable = false;
         }
 
-        public void UnblockAllInteractions() => setInteractible(true);
+        public void UnblockAllInteractions() => SetInteractible(true);
         
-        private void setInteractible(bool value)
+        private void SetInteractible(bool value)
         {
             _attackButton.GetComponent<Selectable>().interactable = value;
             _moveButton.GetComponent<Selectable>().interactable = value;

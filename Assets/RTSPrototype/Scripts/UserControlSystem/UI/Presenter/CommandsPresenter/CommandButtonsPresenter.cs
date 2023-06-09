@@ -12,10 +12,9 @@ using UnityEngine.UI;
 namespace RTSPrototype.UIPresenter.CommandsPresenter
 {
     public class CommandButtonsPresenter : MonoBehaviour
-    {        
-        [SerializeField] private CommandButtonsView _view;
-
+    {
         [Inject] private IObservable<ISelectable> _selected;
+        [Inject] private CommandButtonsView _view;
         [Inject] private CommandButtonsModel _model;
 
         private ISelectable _currentSelectable;

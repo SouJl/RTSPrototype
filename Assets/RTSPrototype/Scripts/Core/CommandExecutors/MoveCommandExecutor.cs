@@ -61,7 +61,7 @@ namespace RTSPrototype.Core.CommandExecutors
             try
             {
                 await _movementStop
-                    .WithCancellation(
+                    .RunWithCancellation(
                     _stopCommandExecutor
                     .CancellationTokenSource
                     .Token);  
