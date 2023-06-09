@@ -56,7 +56,7 @@ namespace RTSPrototype.UIModel
             ICommandsQueue commandsQueue, 
             object command)
         {
-            if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
+            if (!Input.GetKey(KeyCode.LeftShift))
             {
                 commandsQueue.Clear();
             }
