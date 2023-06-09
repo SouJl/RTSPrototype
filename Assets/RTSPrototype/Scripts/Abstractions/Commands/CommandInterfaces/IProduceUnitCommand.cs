@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿using RTSPrototype.Abstractions.ScriptableObjects;
 
 namespace RTSPrototype.Abstractions.Commands.CommandInterfaces
 {

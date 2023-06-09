@@ -1,6 +1,6 @@
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 using Zenject;
-using RTSPrototype.Abstractions;
+using RTSPrototype.Abstractions.ScriptableObjects;
 
 namespace RTSPrototype.UIModel.CommandRealization 
 {

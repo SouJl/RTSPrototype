@@ -1,8 +1,15 @@
-﻿using RTSPrototype.Abstractions;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace RTSPrototype.UIModel.Data
+namespace RTSPrototype.Abstractions.ScriptableObjects
 {
+    public interface IProducedUnitData
+    {
+        string UnitName { get; }
+        float ProductionTime { get; }
+        Sprite Icon { get; }
+        GameObject UnitPrefab { get; }
+    }
+
     [CreateAssetMenu(fileName = nameof(ProducedUnitData), menuName = "RTSPrototype/Data/" + nameof(ProducedUnitData))]
     public class ProducedUnitData : ScriptableObject, IProducedUnitData
     {

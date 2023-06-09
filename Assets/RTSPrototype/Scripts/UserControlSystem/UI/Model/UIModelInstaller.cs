@@ -1,7 +1,7 @@
 ﻿using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
+using RTSPrototype.Abstractions.ScriptableObjects;
 using RTSPrototype.UIModel.CommandCreators;
-using RTSPrototype.UIModel.Data;
 using UnityEngine;
 using Zenject;
 
