@@ -14,17 +14,35 @@ namespace RTSPrototype.Core.Building
         public Sprite Icon => _icon;
        
         public string Name => _name;
-        public Transform PivotPoint => gameObject.transform;      
+        public Transform PivotPoint => gameObject.transform;
 
         #endregion
+        public Vector3 RallyPoint { get; set; }
 
         [SerializeField] private string _name;
         [SerializeField] private float _maxHealth;
         [SerializeField] private Sprite _icon;
 
-        private float _currentHealth = 1200f;
+        private float _currentHealth;
 
-        public Vector3 RallyPoint { get; set; }
+        private void Start()
+        {
+            _currentHealth = _maxHealth;
+        }
+
+        public void RecieveDamage(int amount)
+        {
+            if (_currentHealth <= 0)
+            {
+                return;
+            }
+            _currentHealth -= amount;
+            if (_currentHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
+
+        }
     }
 }
 

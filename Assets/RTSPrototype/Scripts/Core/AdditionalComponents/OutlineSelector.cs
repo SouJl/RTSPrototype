@@ -25,8 +25,10 @@ namespace RTSPrototype.Core.AdditionalComponents
         }
 
 
-        private void Start() => 
+        private void Start()
+        {
             SwitchOutlinesState(_isActive);
+        }
        
         public void ChangeState(bool outlineState) 
         {
@@ -44,6 +46,8 @@ namespace RTSPrototype.Core.AdditionalComponents
 
         private void SwitchOutlinesState(bool toChnageState)
         {
+            if (this == null) return;
+
             for (int i = 0; i < _onGameobjectOutlines.Length; i++)
             {
                 _onGameobjectOutlines[i].enabled = toChnageState;

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <UnitName>k__BackingField: Knight
   <Icon>k__BackingField: {fileID: 21300000, guid: a998e712aa7b3b345aa04987e91928d0, type: 3}
-  <ProductionTime>k__BackingField: 5
+  <ProductionTime>k__BackingField: 3
   <UnitPrefab>k__BackingField: {fileID: 485640635272551687, guid: f9c08a4bcd1219246936c96b3d52ff08, type: 3}

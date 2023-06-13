@@ -56,7 +56,7 @@ namespace RTSPrototype.Core.CommandExecutors
         private async Task ExceuteMove(IMoveCommand command)
         {
             _curentAgent.destination = command.TargetPosition;
-            _animatorHandler.SetBoolAnimation("IsWalk", true);
+            _animatorHandler.SetTriggerAnimation("PlayWalk");
             _stopCommandExecutor.CancellationTokenSource = new CancellationTokenSource();
             try
             {
@@ -72,7 +72,7 @@ namespace RTSPrototype.Core.CommandExecutors
                 _curentAgent.ResetPath();
             }
             _stopCommandExecutor.CancellationTokenSource = null;
-            _animatorHandler.SetBoolAnimation("IsWalk", false);
+            _animatorHandler.SetTriggerAnimation("PlayIdle");
         }
 
         private void OnPause(bool isPaused)
