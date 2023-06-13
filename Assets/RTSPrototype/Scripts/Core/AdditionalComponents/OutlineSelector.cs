@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using RTSPrototype.Abstractions;
+using UnityEngine;
 
-namespace RTSPrototype.UIView
+namespace RTSPrototype.Core.AdditionalComponents
 {
-    public class OutlineSelector : MonoBehaviour
+    public class OutlineSelector : MonoBehaviour, IOutlineSelector
     {
         [SerializeField] private bool _isOutlineEnable= true;
         [SerializeField] private Outline[] _onGameobjectOutlines;
@@ -46,6 +47,16 @@ namespace RTSPrototype.UIView
             for (int i = 0; i < _onGameobjectOutlines.Length; i++)
             {
                 _onGameobjectOutlines[i].enabled = toChnageState;
+            }
+        }
+
+        public void ChangeColor(Color newColor)
+        {
+            if (!_isOutlineEnable) return;
+
+            for (int i = 0; i < _onGameobjectOutlines.Length; i++)
+            {
+                _onGameobjectOutlines[i].OutlineColor = newColor;
             }
         }
     }

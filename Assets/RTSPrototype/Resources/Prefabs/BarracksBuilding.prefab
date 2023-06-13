@@ -3558,14 +3558,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8066867897219003065}
-  - component: {fileID: 7287815285509398939}
-  - component: {fileID: 8355340418978068462}
   - component: {fileID: -454053845646116619}
-  - component: {fileID: 6284736352392815303}
-  - component: {fileID: -4813831123872186291}
-  - component: {fileID: 7253063500871457216}
+  - component: {fileID: 7287815285509398939}
+  - component: {fileID: 1748796784438310509}
+  - component: {fileID: 8355340418978068462}
   - component: {fileID: 306811180625710957}
   - component: {fileID: 2288826706984024569}
+  - component: {fileID: 7253063500871457216}
+  - component: {fileID: 6284736352392815303}
+  - component: {fileID: -4813831123872186291}
   m_Layer: 0
   m_Name: BarracksBuilding
   m_TagString: Untagged
@@ -3591,37 +3592,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7287815285509398939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8066867897219003070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 072fcac53117cf34eb1a53d4c5b93aab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _name: Knight's Barracks
-  _maxHealth: 1500
-  _icon: {fileID: 21300000, guid: fc291bb7b76aca04e863031ad1f8c33f, type: 3}
-  _enterance: {fileID: 3784478450021115328}
---- !u!114 &8355340418978068462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8066867897219003070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bdee218ef4c9094bbb0016cdd348ee8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isOutlineEnable: 1
-  _onGameobjectOutlines:
-  - {fileID: 2801829921817803268}
 --- !u!208 &-454053845646116619
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -3638,7 +3608,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 6, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &6284736352392815303
+--- !u!114 &7287815285509398939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3647,14 +3617,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8066867897219003070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7323414ce714124f9318a7ee5bad403, type: 3}
+  m_Script: {fileID: 11500000, guid: 072fcac53117cf34eb1a53d4c5b93aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitsParent: {fileID: 0}
-  _spawnPosition: {fileID: 3784478450021115328}
-  _minRange: -10
-  _maxRange: 10
---- !u!114 &-4813831123872186291
+  _name: Knight's Barracks
+  _maxHealth: 1500
+  _icon: {fileID: 21300000, guid: fc291bb7b76aca04e863031ad1f8c33f, type: 3}
+--- !u!114 &1748796784438310509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3663,10 +3632,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8066867897219003070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8d72f71b66ba3f4e8b48b10a9acf4af, type: 3}
+  m_Script: {fileID: 11500000, guid: 6dff5e6b8a2d174408ddfba346b852f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7253063500871457216
+  _factionId: 0
+  _factionColor: {r: 0.8490566, g: 0.70478, b: 0.17221431, a: 1}
+--- !u!114 &8355340418978068462
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3675,9 +3646,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8066867897219003070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb84f4a38371db44a048b2ef38b6e06, type: 3}
+  m_Script: {fileID: 11500000, guid: 6923edbcbdd8bcf478aa63d0833a4061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isOutlineEnable: 1
+  _onGameobjectOutlines:
+  - {fileID: 2801829921817803268}
 --- !u!114 &306811180625710957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3706,6 +3680,46 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad59dd28a893c8f48a6a8f00e3dc4f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7253063500871457216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066867897219003070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb84f4a38371db44a048b2ef38b6e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6284736352392815303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066867897219003070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7323414ce714124f9318a7ee5bad403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unitsParent: {fileID: 0}
+  _spawnPosition: {fileID: 3784478450021115328}
+  _minRange: -10
+  _maxRange: 10
+--- !u!114 &-4813831123872186291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066867897219003070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d72f71b66ba3f4e8b48b10a9acf4af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8066867897547615137

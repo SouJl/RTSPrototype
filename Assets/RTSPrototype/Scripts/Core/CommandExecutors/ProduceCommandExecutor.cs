@@ -49,9 +49,15 @@ namespace RTSPrototype.Core.CommandExecutors
                         _unitsParent);
 
                 var queue = instance.GetComponent<ICommandsQueue>();
+                var factionMember = instance.GetComponent<IFactionMember>();
+              
                 var mainBuilding = GetComponent<SpawnBuilding>();
+                var selfFaction = GetComponent<IFactionMember>();
+                
+                factionMember.SetFactionId(selfFaction.FactionId);
+                factionMember.SetFactionColor(selfFaction.FactionColor);
 
-                queue.EnqueueCommand(new MoveCommand(mainBuilding.RallyPoint));
+                queue.EnqueueCommand(new MoveCommand(mainBuilding.RallyPoint));          
             }
 
         }

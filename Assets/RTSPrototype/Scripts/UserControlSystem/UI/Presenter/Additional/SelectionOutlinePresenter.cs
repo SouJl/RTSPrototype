@@ -1,6 +1,5 @@
 ﻿using System;
 using RTSPrototype.Abstractions;
-using RTSPrototype.UIView;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -11,7 +10,7 @@ namespace RTSPrototype.UIPresenter
     {
         [Inject] private IObservable<ISelectable> _selected;
 
-        private OutlineSelector _selectedOutlineSelector;
+        private IOutlineSelector _selectedOutlineSelector;
         private ISelectable _currentSelected;
 
         private void Start()
@@ -31,7 +30,7 @@ namespace RTSPrototype.UIPresenter
 
             if (selectable != null)
             {
-                _selectedOutlineSelector = (selectable as Component).GetComponentInParent<OutlineSelector>();
+                _selectedOutlineSelector = (selectable as Component).GetComponentInParent<IOutlineSelector>();
                 SetSelected(true);
             }
             else
