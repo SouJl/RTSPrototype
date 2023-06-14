@@ -14,7 +14,7 @@ namespace RTSPrototype.Core.CommandExecutors
 {
     public class MoveCommandExecutor : CommandExecutorBase<IMoveCommand>
     { 
-        [SerializeField] private AnimatorHandler _animatorHandler;
+        [SerializeField] private AnimatorHandler _animator;
         [SerializeField] private UnitMovementStop _movementStop;
         [SerializeField] private StopCommandExecutor _stopCommandExecutor;
         private NavMeshAgent _curentAgent;
@@ -56,7 +56,7 @@ namespace RTSPrototype.Core.CommandExecutors
         private async Task ExceuteMove(IMoveCommand command)
         {
             _curentAgent.destination = command.TargetPosition;
-            _animatorHandler.SetBoolAnimation("IsWalk", true);
+            _animator.ChangeState(AnimationType.Walk);
             _stopCommandExecutor.CancellationTokenSource = new CancellationTokenSource();
             try
             {
@@ -72,7 +72,7 @@ namespace RTSPrototype.Core.CommandExecutors
                 _curentAgent.ResetPath();
             }
             _stopCommandExecutor.CancellationTokenSource = null;
-            _animatorHandler.SetBoolAnimation("IsWalk", false);
+            _animator.ChangeState(AnimationType.Idle);
         }
 
         private void OnPause(bool isPaused)

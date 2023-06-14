@@ -5,25 +5,75 @@ using Zenject;
 
 namespace RTSPrototype.Core
 {
+
+    public enum AnimationType
+    {
+        Idle,
+        Walk,
+        Attack,
+        Death
+    }
+
     public class AnimatorHandler : MonoBehaviour
     {
         [SerializeField] private Animator _animator;
 
         [Inject] private IPauseHandler _pauseHandler;
 
+        private readonly string IDLE_NAME   = "Idle";
+        private readonly string WALK_NAME   = "Walk";
+        private readonly string ATTACK_NAME = "Attack";
+        private readonly string DEATH_NAME  = "Death";
+
         private void Start()
         {
             _pauseHandler.IsPaused.Subscribe(OnPause);
         }
 
-        public void SetBoolAnimation(string name, bool value)
+        public void ChangeState(AnimationType type)
         {
-            _animator.SetBool(name, value);
+            switch (type)
+            {
+                case AnimationType.Idle:
+                    {
+                        SetBoolAnimation(IDLE_NAME, true);
+                        SetBoolAnimation(WALK_NAME, false);
+                        SetBoolAnimation(ATTACK_NAME, false);
+                        SetBoolAnimation(DEATH_NAME, false);
+                        break;
+                    }
+                case AnimationType.Walk:
+                    {
+
+                        SetBoolAnimation(WALK_NAME, true);
+                        SetBoolAnimation(IDLE_NAME, false);
+                        SetBoolAnimation(ATTACK_NAME, false);
+                        SetBoolAnimation(DEATH_NAME, false);
+                        break;
+                    }
+                case AnimationType.Attack:
+                    {
+                        SetBoolAnimation(ATTACK_NAME, true);
+                        SetBoolAnimation(IDLE_NAME, false);
+                        SetBoolAnimation(WALK_NAME, false);
+                        SetBoolAnimation(DEATH_NAME, false);
+                        break;
+                    }
+                case AnimationType.Death:
+                    {
+
+                        SetBoolAnimation(DEATH_NAME, true);
+                        SetBoolAnimation(IDLE_NAME, false);
+                        SetBoolAnimation(WALK_NAME, false);
+                        SetBoolAnimation(ATTACK_NAME, false);
+                        break;
+                    }
+            }
         }
 
-        public void SetTriggerAnimation(string trigger)
+        private void SetBoolAnimation(string name, bool value)
         {
-            _animator.SetTrigger(trigger);
+            _animator.SetBool(name, value);
         }
         
         public float GetCurrentAnimationLength()

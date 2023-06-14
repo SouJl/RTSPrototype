@@ -50,11 +50,13 @@ namespace RTSPrototype.Core.Unit
 
         private async Task UnitDestoy()
         {
-            await Task.Delay(500);
-
+            await Task.Delay(100);
+         
             await _stopCommand.ExecuteSpecificCommand(new StopCommand());
-            
-            _animator.SetTriggerAnimation("PlayDeath");
+         
+            await Task.Delay(100);
+
+            _animator.ChangeState(AnimationType.Death);
             
             int delayTime = (int)(_animator.GetCurrentAnimationLength() + 0.5f) * 1000;
             await Task.Delay(delayTime);

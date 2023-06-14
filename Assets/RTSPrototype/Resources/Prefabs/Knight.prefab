@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fab137123f1fa1499a1847f10707210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animatorHandler: {fileID: 65197452144083319}
+  _animator: {fileID: 65197452144083319}
   _movementStop: {fileID: 2308183411555343879}
   _stopCommandExecutor: {fileID: 7885453015009718608}
 --- !u!114 &-1543507209928188560
