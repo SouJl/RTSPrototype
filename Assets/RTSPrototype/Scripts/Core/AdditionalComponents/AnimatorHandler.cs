@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using RTSPrototype.Abstractions;
+﻿using RTSPrototype.Abstractions;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -37,6 +34,8 @@ namespace RTSPrototype.Core
 
         private void OnPause(bool isPaused)
         {
+            if (this == null) return;
+
             _animator.enabled = !isPaused;
         }
     }

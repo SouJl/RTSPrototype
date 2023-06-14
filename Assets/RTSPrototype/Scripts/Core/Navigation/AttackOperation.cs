@@ -81,7 +81,7 @@ namespace RTSPrototype.Core.Navigation
                         .TargetPositions
                         .OnNext(finalDestination);
                     
-                    Thread.Sleep(100);
+                    Thread.Sleep(50);
                 }
                 else if(selfRotation != Quaternion.LookRotation(attackVector))
                 {

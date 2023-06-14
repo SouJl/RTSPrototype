@@ -68,6 +68,7 @@ namespace RTSPrototype.Core.CommandExecutors
             GetComponent<NavMeshAgent>().isStopped = true;
             GetComponent<NavMeshAgent>().ResetPath();
 
+            _animator.SetBoolAnimation("IsWalk", false);
             _animator.SetTriggerAnimation("PlayAttack");
 
             target.RecieveDamage(GetComponent<IDamageDealer>().Damage);
@@ -77,7 +78,7 @@ namespace RTSPrototype.Core.CommandExecutors
         {
             GetComponent<NavMeshAgent>().destination = position;
 
-            _animator.SetTriggerAnimation("PlayWalk");
+            _animator.SetBoolAnimation("IsWalk", true);
         }
 
         public override async Task ExecuteSpecificCommand(IAttackCommand command) =>
@@ -89,17 +90,21 @@ namespace RTSPrototype.Core.CommandExecutors
              _currentAttackOp = new AttackOperation(this, _selfHealth, _data, command.Target);
             _stopCommandExecutor.CancellationTokenSource = new CancellationTokenSource();
             UpdatePositionsData();
+            _currentAttackOp.Start();
             try
-            {
-                _currentAttackOp.Start();
+            {                
                 await _currentAttackOp
-                    .RunWithCancellation(_stopCommandExecutor.CancellationTokenSource.Token);
+                    .RunWithCancellation(
+                    _stopCommandExecutor
+                    .CancellationTokenSource
+                    .Token);
             }
             catch
             {
                 _currentAttackOp.Cancel();
             }
-            
+
+            _animator.SetBoolAnimation("IsWalk", false);
             _animator.SetTriggerAnimation("PlayIdle");
 
             _currentAttackOp = null;

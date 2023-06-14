@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: KnightAttackData
   m_EditorClassIdentifier: 
   <AttackDistance>k__BackingField: 3
-  <AttackingPeriod>k__BackingField: 1250
+  <AttackingPeriod>k__BackingField: 1150

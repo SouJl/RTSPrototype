@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using RTSPrototype.Abstractions;
-using System.Collections;
+using System.Threading.Tasks;
+using RTSPrototype.Core.CommandExecutors;
+using RTSPrototype.Core.CommandRealization;
 
 namespace RTSPrototype.Core.Unit
 {
@@ -24,6 +26,7 @@ namespace RTSPrototype.Core.Unit
         [SerializeField] private Sprite _icon;
         [SerializeField] private int _damage = 25;
         [SerializeField] private AnimatorHandler _animator;
+        [SerializeField] private StopCommandExecutor _stopCommand;
 
         private float _currentHealth;
 
@@ -32,7 +35,7 @@ namespace RTSPrototype.Core.Unit
             _currentHealth = _maxHealth;
         }
 
-        public void RecieveDamage(int amount)
+        public async void RecieveDamage(int amount)
         {
             if (_currentHealth <= 0)
             {
@@ -40,15 +43,22 @@ namespace RTSPrototype.Core.Unit
             }
             _currentHealth -= amount;
             if (_currentHealth <= 0)
-            { 
-                StartCoroutine(ExecuteUnitDeath());
+            {
+                await UnitDestoy();
             }
         }
 
-        private IEnumerator ExecuteUnitDeath()
+        private async Task UnitDestoy()
         {
+            await Task.Delay(500);
+
+            await _stopCommand.ExecuteSpecificCommand(new StopCommand());
+            
             _animator.SetTriggerAnimation("PlayDeath");
-            yield return new WaitForSeconds(_animator.GetCurrentAnimationLength() + 0.5f);
+            
+            int delayTime = (int)(_animator.GetCurrentAnimationLength() + 0.5f) * 1000;
+            await Task.Delay(delayTime);
+            
             Destroy(gameObject);
         }
     }
