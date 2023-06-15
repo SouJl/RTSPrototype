@@ -19,6 +19,10 @@ namespace RTSPrototype.UIView
         [SerializeField] private GameObject[] _imageHolders;
         [SerializeField] private Button[] _buttons;
 
+
+        private readonly Color _noColor = new Color(0, 0, 0, 0);
+        private readonly Color _fullColor = new Color(255, 255, 255, 255);
+
         private Subject<int> _cancelButtonClicks = new Subject<int>();
         private IDisposable _unitProductionTaskCt;
 
@@ -30,10 +34,13 @@ namespace RTSPrototype.UIView
                 var index = i;
                 _buttons[i].onClick.AddListener(() => _cancelButtonClicks.OnNext(index));
             }
+
+            _currentProducedIcon.color = _noColor;
         }
 
         public void AddTask(IUnitProductionTask task, int index)
         {
+            _currentProducedIcon.color = _fullColor;
             _currentProducedIcon.sprite = task.Icon;
 
             _imageHolders[index].SetActive(true);
@@ -61,6 +68,8 @@ namespace RTSPrototype.UIView
             if (index == 0)
             {
                 _currentProducedIcon.sprite = null;
+                _currentProducedIcon.color = _noColor;
+
                 _productionProgressSlider.gameObject.SetActive(false);
                 _currentUnitName.text = string.Empty;
                 _currentUnitName.enabled = false;
@@ -76,6 +85,7 @@ namespace RTSPrototype.UIView
         public void Clear()
         {
             _currentProducedIcon.sprite = null;
+            _currentProducedIcon.color = _noColor;
 
             for (int i = 0; i < _images.Length; i++)
             {
