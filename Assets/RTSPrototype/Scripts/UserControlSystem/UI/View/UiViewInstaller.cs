@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using Zenject;
+﻿using Zenject;
+using UnityEngine;
 
 namespace RTSPrototype.UIView
 {

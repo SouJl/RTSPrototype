@@ -1,12 +1,12 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
-using RTSPrototype.UIModel;
-using RTSPrototype.UIView;
-using RTSPrototype.Abstractions;
-using RTSPrototype.Abstractions.Commands;
-using Zenject;
+﻿using UniRx;
 using System;
-using UniRx;
+using Zenject;
+using UnityEngine;
+using RTSPrototype.UIView;
+using RTSPrototype.UIModel;
+using RTSPrototype.Abstractions;
+using System.Collections.Generic;
+using RTSPrototype.Abstractions.Commands;
 
 namespace RTSPrototype.UIPresenter.CommandsPresenter
 {

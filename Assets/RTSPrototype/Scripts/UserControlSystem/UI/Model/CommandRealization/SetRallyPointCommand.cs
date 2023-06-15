@@ -1,5 +1,5 @@
-﻿using RTSPrototype.Abstractions.Commands.CommandInterfaces;
-using UnityEngine;
+﻿using UnityEngine;
+using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 
 namespace RTSPrototype.UIModel.CommandRealization
 {

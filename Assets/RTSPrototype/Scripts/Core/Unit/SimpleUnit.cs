@@ -53,6 +53,8 @@ namespace RTSPrototype.Core.Unit
 
         private async Task UnitDestoy()
         {
+            if (this == null) return;
+
             await Task.Delay(100);
          
             await _stopCommand.ExecuteSpecificCommand(new StopCommand());

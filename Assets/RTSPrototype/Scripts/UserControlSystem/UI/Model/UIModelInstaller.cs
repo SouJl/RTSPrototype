@@ -1,9 +1,9 @@
-﻿using RTSPrototype.Abstractions;
-using RTSPrototype.Abstractions.Commands.CommandInterfaces;
-using RTSPrototype.Abstractions.ScriptableObjects;
-using RTSPrototype.UIModel.CommandCreators;
+﻿using Zenject;
 using UnityEngine;
-using Zenject;
+using RTSPrototype.Abstractions;
+using RTSPrototype.UIModel.CommandCreators;
+using RTSPrototype.Abstractions.ScriptableObjects;
+using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 
 namespace RTSPrototype.UIModel
 {

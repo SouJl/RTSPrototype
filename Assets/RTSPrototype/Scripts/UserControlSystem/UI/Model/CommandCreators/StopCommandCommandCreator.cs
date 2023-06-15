@@ -1,10 +1,10 @@
 ﻿using System;
-using RTSPrototype.Abstractions;
-using RTSPrototype.Abstractions.AssetsInjector;
-using RTSPrototype.Abstractions.Commands.CommandInterfaces;
-using RTSPrototype.Abstractions.ScriptableObjects;
-using RTSPrototype.UIModel.CommandRealization;
 using Zenject;
+using RTSPrototype.Abstractions;
+using RTSPrototype.UIModel.CommandRealization;
+using RTSPrototype.Abstractions.AssetsInjector;
+using RTSPrototype.Abstractions.ScriptableObjects;
+using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 
 namespace RTSPrototype.UIModel.CommandCreators
 {

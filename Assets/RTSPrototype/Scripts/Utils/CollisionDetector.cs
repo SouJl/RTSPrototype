@@ -1,5 +1,5 @@
-﻿using System;
-using UniRx;
+﻿using UniRx;
+using System;
 using UnityEngine;
 
 namespace RTSPrototype.Utils

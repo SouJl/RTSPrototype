@@ -1,5 +1,5 @@
-﻿using System;
-using UniRx;
+﻿using UniRx;
+using System;
 
 namespace RTSPrototype.Abstractions
 {

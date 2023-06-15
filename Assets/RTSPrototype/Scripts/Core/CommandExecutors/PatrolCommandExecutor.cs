@@ -1,15 +1,15 @@
-﻿using System;
-using System.Threading.Tasks;
-using RTSPrototype.Abstractions;
-using RTSPrototype.Abstractions.Commands;
-using RTSPrototype.Abstractions.Commands.CommandInterfaces;
-using RTSPrototype.Core.Operations;
+﻿using UniRx;
+using System;
+using Zenject;
 using UnityEngine;
 using UnityEngine.AI;
-using Zenject;
-using UniRx;
-using RTSPrototype.Utils;
 using System.Threading;
+using RTSPrototype.Utils;
+using System.Threading.Tasks;
+using RTSPrototype.Abstractions;
+using RTSPrototype.Core.Operations;
+using RTSPrototype.Abstractions.Commands;
+using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 
 namespace RTSPrototype.Core.CommandExecutors
 {
@@ -84,10 +84,10 @@ namespace RTSPrototype.Core.CommandExecutors
                 }
                 catch
                 {
-                    _curentAgent.isStopped = true;
-                    _curentAgent.ResetPath();
+                    DoOnStop();
                     break;
                 }
+
                 var temp = startPoint;
                 startPoint = endPoint;
                 endPoint = temp;
@@ -99,8 +99,7 @@ namespace RTSPrototype.Core.CommandExecutors
                 }
                 catch
                 {
-                    _curentAgent.isStopped = true;
-                    _curentAgent.ResetPath();
+                    DoOnStop();
                     break;
                 }
             }
@@ -108,6 +107,13 @@ namespace RTSPrototype.Core.CommandExecutors
             _stopCommandExecutor.CancellationTokenSource = null;
             _animator.ChangeState(AnimationType.Idle);
         }
+
+        private void DoOnStop()
+        {
+            _curentAgent.isStopped = true;
+            _curentAgent.ResetPath();
+        }
+
 
         private void OnPause(bool pasue)
         {

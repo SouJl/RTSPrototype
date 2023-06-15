@@ -2,10 +2,10 @@ using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using RTSPrototype.Abstractions;
+using System.Collections.Generic;
 using RTSPrototype.Abstractions.Commands;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
-using System.Collections.Generic;
-using RTSPrototype.Abstractions;
 
 namespace RTSPrototype.UIView 
 {

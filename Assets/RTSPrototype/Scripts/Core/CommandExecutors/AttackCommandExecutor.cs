@@ -1,16 +1,16 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using RTSPrototype.Abstractions;
-using RTSPrototype.Abstractions.Commands;
-using RTSPrototype.Abstractions.Commands.CommandInterfaces;
-using RTSPrototype.Abstractions.ScriptableObjects;
-using RTSPrototype.Core.Operations;
-using RTSPrototype.Utils;
-using UniRx;
+﻿using UniRx;
+using System;
+using Zenject;
 using UnityEngine;
 using UnityEngine.AI;
-using Zenject;
+using System.Threading;
+using RTSPrototype.Utils;
+using System.Threading.Tasks;
+using RTSPrototype.Abstractions;
+using RTSPrototype.Core.Operations;
+using RTSPrototype.Abstractions.Commands;
+using RTSPrototype.Abstractions.ScriptableObjects;
+using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 
 namespace RTSPrototype.Core.CommandExecutors
 {
@@ -85,7 +85,15 @@ namespace RTSPrototype.Core.CommandExecutors
 
         private async Task ExecuteAttack(IAttackCommand command) 
         {
-            _targetTransform = (command.Target as Component).transform;
+            var targetComponent = command.Target as Component;
+            
+            if (targetComponent.GetComponent<IFactionMember>().FactionId 
+                == GetComponent<IFactionMember>().FactionId) 
+            {
+                return;
+            }   
+            
+            _targetTransform = targetComponent.transform;
              _currentAttackOp = new AttackOperation(this, _selfHealth, _data, command.Target);
             _stopCommandExecutor.CancellationTokenSource = new CancellationTokenSource();
             UpdatePositionsData();

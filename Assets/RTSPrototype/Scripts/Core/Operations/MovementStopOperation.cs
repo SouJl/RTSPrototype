@@ -1,9 +1,9 @@
-﻿using System;
-using RTSPrototype.Abstractions;
-using RTSPrototype.Utils;
-using UniRx;
+﻿using UniRx;
+using System;
 using UnityEngine;
 using UnityEngine.AI;
+using RTSPrototype.Utils;
+using RTSPrototype.Abstractions;
 
 namespace RTSPrototype.Core.Operations
 {

@@ -1,9 +1,9 @@
-﻿using System;
-using RTSPrototype.UIModel;
-using RTSPrototype.UIView;
-using UnityEngine;
+﻿using UniRx;
+using System;
 using Zenject;
-using UniRx;
+using UnityEngine;
+using RTSPrototype.UIView;
+using RTSPrototype.UIModel;
 
 namespace RTSPrototype.UIPresenter
 {

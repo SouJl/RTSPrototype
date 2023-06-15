@@ -1,9 +1,9 @@
+using UniRx;
+using Zenject;
 using System.Linq;
 using UnityEngine;
-using RTSPrototype.Abstractions;
 using UnityEngine.EventSystems;
-using Zenject;
-using UniRx;
+using RTSPrototype.Abstractions;
 
 namespace RTSPrototype.UIPresenter 
 {

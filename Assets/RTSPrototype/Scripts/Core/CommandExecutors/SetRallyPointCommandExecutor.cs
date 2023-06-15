@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using UnityEngine;
+using System.Threading.Tasks;
+using RTSPrototype.Core.Building;
 using RTSPrototype.Abstractions.Commands;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
-using RTSPrototype.Core.Building;
-using UnityEngine;
 
 namespace RTSPrototype.Core.CommandExecutors
 {

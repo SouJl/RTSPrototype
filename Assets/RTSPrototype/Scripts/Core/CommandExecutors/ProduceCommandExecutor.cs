@@ -1,13 +1,13 @@
-﻿using RTSPrototype.Abstractions.Commands.CommandInterfaces;
-using RTSPrototype.Abstractions.Commands;
+﻿using UniRx;
 using Zenject;
 using UnityEngine;
-using RTSPrototype.Abstractions;
-using UniRx;
 using RTSPrototype.Utils;
 using System.Threading.Tasks;
+using RTSPrototype.Abstractions;
 using RTSPrototype.Core.Building;
+using RTSPrototype.Abstractions.Commands;
 using RTSPrototype.Core.CommandRealization;
+using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 
 namespace RTSPrototype.Core.CommandExecutors
 {
@@ -17,14 +17,18 @@ namespace RTSPrototype.Core.CommandExecutors
 
         [SerializeField] private Transform _unitsParent;
         [SerializeField] private Transform _spawnPosition;
-        [SerializeField] private float _minRange = -5f;
-        [SerializeField] private float _maxRange = 5f;
+        [SerializeField] private Transform _startPosition;
+
 
         [Inject] private DiContainer _diContainer;
 
         private ReactiveCollection<IUnitProductionTask> _queue = new ReactiveCollection<IUnitProductionTask>();
-   
-        private void Start() => Observable.EveryUpdate().Subscribe(_ => OnUpdate());
+
+        private void Start()
+        {
+            GetComponent<SpawnBuilding>().RallyPoint = _startPosition.position;
+            Observable.EveryUpdate().Subscribe(_ => OnUpdate());
+        }
 
         private void OnUpdate()
         {
@@ -44,8 +48,8 @@ namespace RTSPrototype.Core.CommandExecutors
                 var instance 
                     = _diContainer.InstantiatePrefab(
                         innerTask.UnitPrefab,
-                        _spawnPosition.position, 
-                        Quaternion.identity,
+                        _spawnPosition.position,
+                        _spawnPosition.rotation,
                         _unitsParent);
 
                 var queue = instance.GetComponent<ICommandsQueue>();

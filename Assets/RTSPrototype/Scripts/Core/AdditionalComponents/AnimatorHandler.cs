@@ -1,9 +1,8 @@
-﻿using System;
-using RTSPrototype.Abstractions;
-using UniRx;
-using UnityEngine;
+﻿using UniRx;
+using System;
 using Zenject;
-using static UnityEditor.PlayerSettings;
+using UnityEngine;
+using RTSPrototype.Abstractions;
 
 namespace RTSPrototype.Core
 {

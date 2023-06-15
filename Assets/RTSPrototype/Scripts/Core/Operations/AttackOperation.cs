@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Threading;
-using RTSPrototype.Abstractions;
-using RTSPrototype.Abstractions.ScriptableObjects;
-using RTSPrototype.Core.CommandExecutors;
-using RTSPrototype.Utils;
 using UnityEngine;
+using System.Threading;
+using RTSPrototype.Utils;
+using RTSPrototype.Abstractions;
+using RTSPrototype.Core.CommandExecutors;
+using RTSPrototype.Abstractions.ScriptableObjects;
 
 namespace RTSPrototype.Core.Operations
 {

@@ -1,6 +1,5 @@
-﻿
+﻿using UnityEngine;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
-using UnityEngine;
 
 namespace RTSPrototype.Core.CommandRealization
 {

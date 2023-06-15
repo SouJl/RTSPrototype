@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using UniRx;
+﻿using UniRx;
 using Zenject;
+using UnityEngine;
+using UnityEngine.UI;
 using RTSPrototype.Abstractions;
 
 namespace RTSPrototype.UIPresenter

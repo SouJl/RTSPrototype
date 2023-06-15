@@ -1,5 +1,5 @@
-﻿using RTSPrototype.Abstractions;
-using UnityEngine;
+﻿using UnityEngine;
+using RTSPrototype.Abstractions;
 
 namespace RTSPrototype.UIModel
 {

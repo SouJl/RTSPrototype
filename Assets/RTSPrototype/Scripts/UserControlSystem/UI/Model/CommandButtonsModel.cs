@@ -1,9 +1,9 @@
 ﻿using System;
+using Zenject;
+using UnityEngine;
 using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.Commands;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
-using UnityEngine;
-using Zenject;
 
 namespace RTSPrototype.UIModel
 {

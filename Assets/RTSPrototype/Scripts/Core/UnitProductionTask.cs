@@ -1,7 +1,7 @@
 ﻿using System;
+using UnityEngine;
 using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.ScriptableObjects;
-using UnityEngine;
 
 namespace RTSPrototype.Core
 {

@@ -1,10 +1,10 @@
-﻿using System;
+﻿using UniRx;
 using TMPro;
-using UnityEngine;
+using System;
 using Zenject;
-using UniRx;
-using RTSPrototype.Abstractions;
+using UnityEngine;
 using UnityEngine.UI;
+using RTSPrototype.Abstractions;
 
 namespace RTSPrototype.UIPresenter
 {
