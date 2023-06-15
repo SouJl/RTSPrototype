@@ -3,6 +3,7 @@ using RTSPrototype.Abstractions;
 using System.Threading.Tasks;
 using RTSPrototype.Core.CommandExecutors;
 using RTSPrototype.Core.CommandRealization;
+using RTSPrototype.Utils;
 
 namespace RTSPrototype.Core.Unit
 {
@@ -63,7 +64,7 @@ namespace RTSPrototype.Core.Unit
 
             _animator.ChangeState(AnimationType.Death);
             
-            int delayTime = (int)(_animator.GetCurrentAnimationLength() + 0.5f) * 1000;
+            int delayTime = (int)(_animator.GetCurrentAnimationLength() + 0.5f) * Const.TaskTimeCoeff;
             await Task.Delay(delayTime);
             
             Destroy(gameObject);

@@ -18,6 +18,7 @@ namespace RTSPrototype.Core.CommandExecutors
         [SerializeField] private AnimatorHandler _animator;
         [SerializeField] private MovementStopOperation _movementStop;
         [SerializeField] private StopCommandExecutor _stopCommandExecutor;
+        [SerializeField] private float _changeDirectionDelay = 1f;
 
         [Inject] private IPauseHandler _pauseHandler;
 
@@ -95,7 +96,12 @@ namespace RTSPrototype.Core.CommandExecutors
                 try
                 {
                     _animator.ChangeState(AnimationType.Idle);
-                    await Task.Delay(1000, _stopCommandExecutor.CancellationTokenSource.Token);
+                    
+                    await Task.Delay
+                        (
+                            (int)_changeDirectionDelay * Const.TaskTimeCoeff, 
+                            _stopCommandExecutor.CancellationTokenSource.Token
+                        );
                 }
                 catch
                 {
