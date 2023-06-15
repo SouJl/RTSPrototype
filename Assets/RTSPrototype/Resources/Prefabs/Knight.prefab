@@ -1135,6 +1135,7 @@ MonoBehaviour:
   _name: Knight
   _maxHealth: 100
   _icon: {fileID: 21300000, guid: a998e712aa7b3b345aa04987e91928d0, type: 3}
+  _attackDistanceOffset: 0
   _damage: 25
   _animator: {fileID: 65197452144083319}
   _stopCommand: {fileID: 7885453015009718608}
@@ -1250,6 +1251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2336a819f1c6b4740a22270c83c092c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 65197452144083319}
+  _movementStop: {fileID: 2308183411555343879}
+  _stopCommandExecutor: {fileID: 7885453015009718608}
 --- !u!114 &7885453015009718608
 MonoBehaviour:
   m_ObjectHideFlags: 0
