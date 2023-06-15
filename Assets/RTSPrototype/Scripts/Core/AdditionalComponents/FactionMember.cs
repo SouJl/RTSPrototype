@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using RTSPrototype.Abstractions;
+using RTSPrototype.Utils;
 
 namespace RTSPrototype.Core.AdditionalComponents
 {
@@ -13,17 +14,22 @@ namespace RTSPrototype.Core.AdditionalComponents
         [SerializeField] private Color _factionColor = Color.red;
 
         private IOutlineSelector _outlineSelector;
+        private int _selfId;
 
         private void OnEnable()
         {
+            _selfId = GetInstanceID();
             _outlineSelector ??= GetComponent<OutlineSelector>();
         }
 
         private void Start()
         {
             _outlineSelector.ChangeColor(FactionColor);
+            if (_factionId != 0)
+            {
+                FactionGameState.Register(_factionId, _selfId);
+            }
         }
-
 
         public void SetFactionColor(Color factionColor)
         {
@@ -33,6 +39,11 @@ namespace RTSPrototype.Core.AdditionalComponents
         public void SetFactionId(int factionId)
         {
             _factionId = factionId;
+        }
+
+        private void OnDestroy()
+        {
+            FactionGameState.Unregister(_factionId, _selfId);
         }
     }
 }
