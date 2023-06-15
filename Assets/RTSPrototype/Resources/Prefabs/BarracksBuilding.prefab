@@ -3623,6 +3623,7 @@ MonoBehaviour:
   _name: Knight's Barracks
   _maxHealth: 1500
   _icon: {fileID: 21300000, guid: fc291bb7b76aca04e863031ad1f8c33f, type: 3}
+  _attackDistanceOffset: 2.5
 --- !u!114 &1748796784438310509
 MonoBehaviour:
   m_ObjectHideFlags: 0

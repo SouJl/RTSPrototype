@@ -9192,6 +9192,10 @@ PrefabInstance:
       propertyPath: _unitsParent
       value: 
       objectReference: {fileID: 1110754810}
+    - target: {fileID: 7287815285509398939, guid: aea3d24e902892c4daa37071685981c7, type: 3}
+      propertyPath: _attackDistanceOffset
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7829186494497903737, guid: aea3d24e902892c4daa37071685981c7, type: 3}
       propertyPath: precomputeOutline
       value: 1

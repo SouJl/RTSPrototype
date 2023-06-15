@@ -1,9 +1,10 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.Commands;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
-using RTSPrototype.Core.Navigation;
+using RTSPrototype.Core.Operations;
 using RTSPrototype.Utils;
 using UniRx;
 using UnityEngine;
@@ -15,17 +16,29 @@ namespace RTSPrototype.Core.CommandExecutors
     public class MoveCommandExecutor : CommandExecutorBase<IMoveCommand>
     { 
         [SerializeField] private AnimatorHandler _animator;
-        [SerializeField] private UnitMovementStop _movementStop;
+        [SerializeField] private MovementStopOperation _movementStop;
         [SerializeField] private StopCommandExecutor _stopCommandExecutor;
-        private NavMeshAgent _curentAgent;
 
         [Inject] private IPauseHandler _pauseHandler;
+
+        private NavMeshAgent _curentAgent;
+        private IDisposable _pauseEvent;
+
+        private void Start()
+        {
+            _pauseEvent = _pauseHandler.IsPaused.Subscribe(OnPause);
+        }
+
+        private void OnDestroy()
+        {
+            _pauseEvent.Dispose();
+        }
 
         private void Awake()
         {
             _curentAgent = GetComponent<NavMeshAgent>();
 
-            if (TryGetComponent<UnitMovementStop>(out var movementStop))
+            if (TryGetComponent<MovementStopOperation>(out var movementStop))
             {
                 _movementStop ??= movementStop;
             }
@@ -43,13 +56,7 @@ namespace RTSPrototype.Core.CommandExecutors
                 Debug.Log($"Cant't find StopCommandExecutor on {name}");
             }
         }
-
-        private void Start()
-        {
-            _pauseHandler.IsPaused.Subscribe(OnPause);
-        }
-
-
+    
         public override async Task ExecuteSpecificCommand(IMoveCommand command) => 
              await ExceuteMove(command);
 

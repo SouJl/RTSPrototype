@@ -7,7 +7,6 @@ using RTSPrototype.Abstractions.Commands;
 using Zenject;
 using System;
 using UniRx;
-using UnityEngine.UI;
 
 namespace RTSPrototype.UIPresenter.CommandsPresenter
 {

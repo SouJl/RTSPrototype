@@ -8,7 +8,7 @@ namespace RTSPrototype.Core.Unit
 {
     public class SimpleUnit : MonoBehaviour, IUnit, IAttackable, IDamageDealer
     {
-        #region Interface implementation
+        #region Interface implementation fields
 
         public float CurrentHealth => _currentHealth;
         public float MaxHealth => _maxHealth;
@@ -19,11 +19,14 @@ namespace RTSPrototype.Core.Unit
 
         public int Damage => _damage;
 
+        public float AttackDistanceOffset => _attackDistanceOffset;
+
         #endregion
 
         [SerializeField] private string _name;
         [SerializeField] private float _maxHealth = 100f;
         [SerializeField] private Sprite _icon;
+        [SerializeField] private float _attackDistanceOffset;
         [SerializeField] private int _damage = 25;
         [SerializeField] private AnimatorHandler _animator;
         [SerializeField] private StopCommandExecutor _stopCommand;

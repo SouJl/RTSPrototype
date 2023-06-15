@@ -1,11 +1,12 @@
-﻿using RTSPrototype.Abstractions;
+﻿using System;
+using RTSPrototype.Abstractions;
 using UniRx;
 using UnityEngine;
 using Zenject;
+using static UnityEditor.PlayerSettings;
 
 namespace RTSPrototype.Core
 {
-
     public enum AnimationType
     {
         Idle,
@@ -17,7 +18,7 @@ namespace RTSPrototype.Core
     public class AnimatorHandler : MonoBehaviour
     {
         [SerializeField] private Animator _animator;
-
+        
         [Inject] private IPauseHandler _pauseHandler;
 
         private readonly string IDLE_NAME   = "Idle";
@@ -25,9 +26,16 @@ namespace RTSPrototype.Core
         private readonly string ATTACK_NAME = "Attack";
         private readonly string DEATH_NAME  = "Death";
 
+        private IDisposable _pauseEvent;
+      
         private void Start()
         {
-            _pauseHandler.IsPaused.Subscribe(OnPause);
+            _pauseEvent = _pauseHandler.IsPaused.Subscribe(OnPause);
+        }
+
+        private void OnDestroy()
+        {
+            _pauseEvent.Dispose();
         }
 
         public void ChangeState(AnimationType type)

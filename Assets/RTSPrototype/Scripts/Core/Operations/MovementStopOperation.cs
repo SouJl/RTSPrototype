@@ -5,21 +5,22 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace RTSPrototype.Core.Navigation
+namespace RTSPrototype.Core.Operations
 {
-    public class UnitMovementStop : MonoBehaviour, IAwaitable<AsyncExtensions.Void>
-    {
-        public event Action OnStop;
-
+    public class MovementStopOperation : MonoBehaviour, IAwaitable<AsyncExtensions.Void>
+    {     
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private CollisionDetector _collisionDetector;
         [SerializeField] private int _throttleFrames = 60;
         [SerializeField] private int _continuityThreshold = 10;
 
+        private event Action OnComplete;
+
         private void OnValidate()
         {
             _agent ??= GetComponent<NavMeshAgent>();
         }
+
         private void Awake()
         {
             _collisionDetector.Collisions
@@ -43,26 +44,42 @@ namespace RTSPrototype.Core.Navigation
                 {
                     _agent.isStopped = true;
                     _agent.ResetPath();
-                    OnStop?.Invoke();
-
+                    OnComplete?.Invoke();
                 })
                 .AddTo(this);
-    }
+        }
 
-    private void Update()
-    {
-        if (!_agent.pathPending)
+        private void Update()
         {
-            if (_agent.remainingDistance <= _agent.stoppingDistance)
+            if (!_agent.pathPending)
             {
-                if (!_agent.hasPath || _agent.velocity.sqrMagnitude == 0f)
+                if (_agent.remainingDistance <= _agent.stoppingDistance)
                 {
-                    OnStop?.Invoke();
+                    if (!_agent.hasPath || _agent.velocity.sqrMagnitude == 0f)
+                    {
+                        OnComplete?.Invoke();
+                    }
                 }
             }
         }
-    }
 
-    public IAwaiter<AsyncExtensions.Void> GetAwaiter() => new StopAwaiter(this);
-}
+        public IAwaiter<AsyncExtensions.Void> GetAwaiter() => new MovementStopAwaiter(this);
+
+        private sealed class MovementStopAwaiter : AwaiterBase<AsyncExtensions.Void>
+        {
+            private readonly MovementStopOperation _unitMovementStop;
+
+            public MovementStopAwaiter(MovementStopOperation unitMovementStop)
+            {
+                _unitMovementStop = unitMovementStop;
+                _unitMovementStop.OnComplete += OnStop;
+            }
+
+            private void OnStop()
+            {
+                _unitMovementStop.OnComplete -= OnStop;
+                OnWaitFinish(new AsyncExtensions.Void());
+            }
+        }
+    }
 }

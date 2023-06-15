@@ -5,7 +5,7 @@ using RTSPrototype.Abstractions;
 using RTSPrototype.Abstractions.Commands;
 using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 using RTSPrototype.Abstractions.ScriptableObjects;
-using RTSPrototype.Core.Navigation;
+using RTSPrototype.Core.Operations;
 using RTSPrototype.Utils;
 using UniRx;
 using UnityEngine;

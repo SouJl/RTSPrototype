@@ -5,7 +5,7 @@ namespace RTSPrototype.Core.Building
 {
     public class SpawnBuilding : MonoBehaviour, ISelectable, IAttackable
     {
-        #region ISelectable
+        #region Interface implementation fields
 
         public float CurrentHealth => _currentHealth;
 
@@ -15,13 +15,16 @@ namespace RTSPrototype.Core.Building
        
         public string Name => _name;
         public Transform PivotPoint => gameObject.transform;
+        public float AttackDistanceOffset => _attackDistanceOffset;
 
         #endregion
+
         public Vector3 RallyPoint { get; set; }
 
         [SerializeField] private string _name;
         [SerializeField] private float _maxHealth;
         [SerializeField] private Sprite _icon;
+        [SerializeField] private float _attackDistanceOffset = 0f;
 
         private float _currentHealth;
 
@@ -41,7 +44,6 @@ namespace RTSPrototype.Core.Building
             {
                 Destroy(gameObject);
             }
-
         }
     }
 }
