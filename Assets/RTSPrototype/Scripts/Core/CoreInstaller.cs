@@ -13,6 +13,8 @@ namespace RTSPrototype.Core
         {
             Container.BindInterfacesAndSelfTo<TimeModel>().AsSingle();
             Container.BindInterfacesAndSelfTo<PauseHandlerModel>().AsSingle().NonLazy();
+            Container.Bind<IFactionManager>().To<FactionManager>().AsSingle().NonLazy();
+
             Container.Bind<IGameStatus>().FromInstance(_gameStatus).AsSingle();
         }
     }

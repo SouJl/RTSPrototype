@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using Zenject;
+using UnityEngine;
 using RTSPrototype.Abstractions;
-using RTSPrototype.Utils;
 
 namespace RTSPrototype.Core.AdditionalComponents
 {
@@ -12,6 +12,8 @@ namespace RTSPrototype.Core.AdditionalComponents
 
         [SerializeField] private int _factionId;
         [SerializeField] private Color _factionColor = Color.red;
+
+        [Inject] private IFactionManager _factionManager;
 
         private IOutlineSelector _outlineSelector;
         private int _selfId;
@@ -27,7 +29,7 @@ namespace RTSPrototype.Core.AdditionalComponents
             _outlineSelector.ChangeColor(FactionColor);
             if (_factionId != 0)
             {
-                FactionGameState.Register(_factionId, _selfId);
+                _factionManager.Register(_factionId, _selfId);
             }
         }
 
@@ -43,7 +45,7 @@ namespace RTSPrototype.Core.AdditionalComponents
 
         private void OnDestroy()
         {
-            FactionGameState.Unregister(_factionId, _selfId);
+            _factionManager.Unregister(_factionId, _selfId);
         }
     }
 }

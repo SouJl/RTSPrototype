@@ -1,11 +1,16 @@
 ﻿using System.Linq;
+using RTSPrototype.Abstractions;
 using System.Collections.Generic;
 
-namespace RTSPrototype.Utils
+namespace RTSPrototype.Core.AdditionalComponents
 {
-    public sealed class FactionGameState
+    public sealed class FactionManager : IFactionManager
     {
-        public static int FactionsCount
+
+        private readonly Dictionary<int, List<int>> _membersCount 
+            = new Dictionary<int, List<int>>();
+
+        public int FactionsCount
         {
             get
             {
@@ -16,18 +21,7 @@ namespace RTSPrototype.Utils
             }
         }
 
-        public static int GetWinner()
-        {
-            lock (_membersCount)
-            {
-                return _membersCount.Keys.First();
-            }
-        }
-
-        private static Dictionary<int, List<int>> _membersCount = new Dictionary<int, List<int>>();
-
-
-        public static void Register(int factionId, int memberId)
+        public void Register(int factionId, int memberId)
         {
             lock (_membersCount)
             {
@@ -42,7 +36,7 @@ namespace RTSPrototype.Utils
             }
         }
 
-        public static void Unregister(int factionId, int memberId)
+        public void Unregister(int factionId, int memberId)
         {
             lock (_membersCount)
             {
@@ -57,5 +51,12 @@ namespace RTSPrototype.Utils
             }
         }
 
+        public int GetWinner()
+        {
+            lock (_membersCount)
+            {
+                return _membersCount.Keys.First();
+            }
+        }
     }
 }
