@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using RTSPrototype.Abstractions;
+using RTSPrototype.Utils;
 using System.Threading.Tasks;
+using RTSPrototype.Abstractions;
 using RTSPrototype.Core.CommandExecutors;
 using RTSPrototype.Core.CommandRealization;
-using RTSPrototype.Utils;
 
 namespace RTSPrototype.Core.Unit
 {
@@ -66,7 +66,7 @@ namespace RTSPrototype.Core.Unit
             
             int delayTime = (int)(_animator.GetCurrentAnimationLength() + 0.5f) * Const.TaskTimeCoeff;
             await Task.Delay(delayTime);
-            
+
             Destroy(gameObject);
         }
     }

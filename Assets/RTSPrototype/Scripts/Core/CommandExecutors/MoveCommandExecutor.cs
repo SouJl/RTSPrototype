@@ -13,7 +13,7 @@ using RTSPrototype.Core.Operations;
 
 namespace RTSPrototype.Core.CommandExecutors
 {
-    public class MoveCommandExecutor : CommandExecutorBase<IMoveCommand>
+    public class MoveCommandExecutor : CommandExecutorBase<IMoveCommand>, IDisposable
     { 
         [SerializeField] private AnimatorHandler _animator;
         [SerializeField] private MovementStopOperation _movementStop;
@@ -27,11 +27,6 @@ namespace RTSPrototype.Core.CommandExecutors
         private void Start()
         {
             _pauseEvent = _pauseHandler.IsPaused.Subscribe(OnPause);
-        }
-
-        private void OnDestroy()
-        {
-            _pauseEvent.Dispose();
         }
 
         private void Awake()
@@ -85,6 +80,11 @@ namespace RTSPrototype.Core.CommandExecutors
         private void OnPause(bool isPaused)
         {
             _curentAgent.isStopped = isPaused;
+        }
+
+        public void Dispose()
+        {
+            _pauseEvent.Dispose();
         }
     }
 }

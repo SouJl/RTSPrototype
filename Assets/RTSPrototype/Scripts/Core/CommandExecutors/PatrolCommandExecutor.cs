@@ -13,7 +13,7 @@ using RTSPrototype.Abstractions.Commands.CommandInterfaces;
 
 namespace RTSPrototype.Core.CommandExecutors
 {
-    public class PatrolCommandExecutor: CommandExecutorBase<IPatrolCommand>
+    public class PatrolCommandExecutor: CommandExecutorBase<IPatrolCommand>, IDisposable
     {
         [SerializeField] private AnimatorHandler _animator;
         [SerializeField] private MovementStopOperation _movementStop;
@@ -28,11 +28,6 @@ namespace RTSPrototype.Core.CommandExecutors
         private void Start()
         {
             _pauseEvent = _pauseHandler.IsPaused.Subscribe(OnPause);
-        }
-
-        private void OnDestroy()
-        {
-            _pauseEvent.Dispose();
         }
 
         private void Awake()
@@ -124,6 +119,11 @@ namespace RTSPrototype.Core.CommandExecutors
         private void OnPause(bool pasue)
         {
             _curentAgent.isStopped = pasue;
+        }
+
+        public void Dispose()
+        {
+            _pauseEvent.Dispose();
         }
     }
 }

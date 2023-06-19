@@ -14,7 +14,7 @@ namespace RTSPrototype.Core
         Death
     }
 
-    public class AnimatorHandler : MonoBehaviour
+    public class AnimatorHandler : MonoBehaviour, IDisposable
     {
         [SerializeField] private Animator _animator;
         
@@ -32,9 +32,11 @@ namespace RTSPrototype.Core
             _pauseEvent = _pauseHandler.IsPaused.Subscribe(OnPause);
         }
 
-        private void OnDestroy()
+        private void OnPause(bool isPaused)
         {
-            _pauseEvent.Dispose();
+            if (this == null) return;
+
+            _animator.enabled = !isPaused;
         }
 
         public void ChangeState(AnimationType type)
@@ -89,11 +91,9 @@ namespace RTSPrototype.Core
                 .GetCurrentAnimatorClipInfo(0)[0].clip.length;
         }
 
-        private void OnPause(bool isPaused)
+        public void Dispose()
         {
-            if (this == null) return;
-
-            _animator.enabled = !isPaused;
+            _pauseEvent.Dispose();
         }
     }
 }
