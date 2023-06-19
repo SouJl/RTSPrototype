@@ -18,7 +18,9 @@ namespace RTSPrototype.Core.Unit
 
         private ReactiveCollection<ICommand> _innerCollection = 
             new ReactiveCollection<ICommand>();
-        
+
+        public int CurrentCommandInQueue => _innerCollection.Count;
+
         [Inject]
         private void Init()
         {

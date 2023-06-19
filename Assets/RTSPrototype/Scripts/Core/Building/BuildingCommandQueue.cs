@@ -11,6 +11,8 @@ namespace RTSPrototype.Core.Building
         [Inject] private CommandExecutorBase<IProduceUnitCommand> _produceUnitCommandExecutor;
         [Inject] private CommandExecutorBase<ISetRallyPointCommand> _setRallyPointCommandExecutor;
 
+        public int CurrentCommandInQueue => 0;
+
         public void Clear() { }
         public async void EnqueueCommand(object command)
         {
